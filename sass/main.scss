@@ -1,0 +1,242 @@
+@import "compass";
+@import url( "normalize.css" );
+@import url( "typography.css" );
+
+/*
+Title:                Anvil.JS Github Page styles
+Author:                Joel Andrew Glovier
+Author email:          jglovier@appendto.com
+Author URI:            http://appendto.com
+Copyright:             appendTo 2013
+Created:               12/26/2012
+Version:               1.0
+*/
+
+/* Color Palatte
+
+black text:            #393939
+light gray text:       #ababab
+appendTo red:          #c42026
+
+*/
+$red: #c42026;
+$lightgray: #ababab;
+$br1: 10px;
+$br2: 6px;
+$br3: 4px;
+
+
+/* Conventions: */
+
+/* Main Categories -------------------- */
+
+  /* sub categories */
+
+
+/* @group Utility & General Styles -------------------- */
+
+body{
+	background-color:#cfcfcf;
+	background-image: url(/images/bgtexture1.jpg);
+	background-attachment: fixed;
+	font-family: "museosans",Helvetica,Arial,sans-serif;
+	font-size:16px;
+	line-height:1.5;
+	color:#393939; }
+
+.fixed{ position:fixed; }
+/* clearfix (now called group, via http://css-tricks.com/snippets/css/clear-fix/) */
+
+.group:before,
+.group:after { content:""; display:table; }
+
+.group:after { clear:both; }
+
+.group { zoom:1; /* For IE 6/7 (trigger hasLayout) */ }
+
+h2, h3 {
+	font-family: "blanch";
+	font-weight: normal;
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 3px; }
+
+h2 { font-size: 57px; line-height: 34px; }
+
+h3 { font-size: 46px; line-height: 24px; }
+
+/* @end general styles */
+
+
+
+/* @group Page Header -------------------- */
+
+.page-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 308px;
+	height: 100%;
+	padding: 0 22px;
+	background-color: #000;
+	background: url(/images/bgtexture2.png) repeat-y 100% top;
+	color: #fff;
+	text-align: center;
+
+	.anvil-logo { margin: 44px auto 33px; display: block; }
+
+	.installation {
+		background-color: $red;
+		background: url(/images/installbg.png) center top;
+		padding: 10px;
+		@include border-radius( $br2 );
+
+		h3 {
+			text-shadow: 0 2px 1px #000;
+			margin-bottom: 10px;
+			background: url(/images/dwnicon.png) no-repeat left 0;
+			letter-spacing: 1px; }
+
+		pre {
+			background-color: #000;
+			margin: 0;
+			padding: 5px 15px;
+			@include border-radius( $br3 );
+			color: #d4d4d4;
+
+			&:before {
+				content: "$";
+				color: #595959;
+				margin-right: 5px;
+				margin-left: -5px;
+			}
+
+		}
+
+	}
+
+	.github-links {	font-size: 13px; margin: 22px 0 28px;
+
+		a { color: #ababab; }
+
+		a:before {
+			content: "";
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			background: url(/images/giticon.png) no-repeat left center;
+			margin-right: 8px;
+			position: relative;
+			top: 5px;
+		}
+
+		.watch { margin-right: 24px; }
+
+		.fork:before { background: url(/images/giticon.png) no-repeat right center; }
+	}
+
+	.documentation-nav {
+		background-color: rgba(68,68,68,.4);
+		@include border-radius( $br2 );
+		padding: 10px;
+
+		h3 { margin: 10px 0; color: $red; letter-spacing: 1px; }
+
+		ol {
+			text-align: left;
+			padding-left: 30px;
+			font-size: 14px;
+			overflow: scroll;
+			max-height: 200px; }
+
+		li { margin-bottom: 5px; }
+
+		a { color: #fff; text-decoration: none; }
+
+	}
+
+	.compatibility {
+		position: absolute;
+		bottom: 55px;
+		left: 37px;
+		font-family: "museosansbold";
+		text-transform: uppercase;
+		font-size: 12px;
+		letter-spacing: 2px;
+		color: #7d7d7d;
+
+		.logo-icons {
+			text-indent: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			width: 116px;
+			height: 35px;
+			background: url(/images/compicon.png) no-repeat center center;
+			display: inline-block;
+			position: relative;
+			top: -10px;
+			margin-left: 10px;
+
+		}
+
+	}
+
+	.appendto-link {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background-color: #000;
+		font-family: "museosansbold";
+		text-transform: uppercase;
+		font-size: 12px;
+		letter-spacing: 2px;
+		border-top: 1px solid rgba(255,255,255,.15);
+
+		a { color: $red; text-decoration: none }
+		a:hover { text-decoration: underline }
+	}
+}
+
+/* @end page header */
+
+
+/* @group Page Content -------------------- */
+
+.page-content { margin-left: 352px; padding: 22px;
+
+	.tagline {
+		background: url(/images/h1-icon-bg.png) no-repeat center center;
+		height: 96px;
+		font-family: "blanch";
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 77px;
+		margin: 0 0 10px;
+		line-height: 40px;
+		letter-spacing: 3px;
+		word-spacing: 3px;
+		padding-top: 38px;
+
+	}
+
+	.content-section {
+		background-color: #eeeeee;
+		background-color: rgba(255,255,255,.5);
+		padding: 18px;
+		@include border-radius(10px);
+		margin-bottom: 40px;
+		@include box-shadow(0 1px 4px rgba(0,0,0,.1));
+
+		p { margin: 1em 0 0 }
+	}
+
+}
+
+/* @end Page Content */
+
+
+
+
+
+
