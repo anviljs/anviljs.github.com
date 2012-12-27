@@ -271,5 +271,11 @@ pre {
   /* line 248, ../sass/main.scss */
   .page-content pre:last-child {
     margin-bottom: 0; }
+  /* line 250, ../sass/main.scss */
+  .page-content a {
+    color: #c42026; }
+  /* line 252, ../sass/main.scss */
+  .page-content h3 {
+    margin-top: 40px; }
 
 /* @end Page Content */
