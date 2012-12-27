@@ -316,10 +316,12 @@ red - error</code></pre>
       <p>Once a plugin is installed, anvil will load it and use it in the build process unless you:</p>
 
       <ul>
-      <li>Disable it globally with '''anvil disable {pluginname}''' at the command line</li>
-      <li>Explicitly include other plugins besides it in the build file</li>
-      <li>Explicitly exclude it in the build file</li>
-      </ul><h3>When Plugins Misbehave</h3>
+        <li>Disable it globally with '''anvil disable {pluginname}''' at the command line</li>
+        <li>Explicitly include other plugins besides it in the build file</li>
+        <li>Explicitly exclude it in the build file</li>
+      </ul>
+
+      <h3>When Plugins Misbehave</h3>
 
       <p>Anvil will attempt to automatically disable a plugin that throws an exception that would break the build. This is to try and prevent an installed plugin from breaking your build system.</p>
 
@@ -327,13 +329,11 @@ red - error</code></pre>
 
       <p>Anvil provides simple command line arguments to install or uninstall plugins to itself at a global level:</p>
 
-      <pre><code>anvil install {pluginname}
-      </code></pre>
+      <pre><code>anvil install {pluginname}</code></pre>
 
       <p>or</p>
 
-      <pre><code>anvil uninstall {pluginname}
-      </code></pre>
+      <pre><code>anvil uninstall {pluginname}</code></pre>
 
       <p>You can also install plugins from a file path using the relative path to the plugin directory in place of the plugin's name.</p>
 
@@ -341,13 +341,11 @@ red - error</code></pre>
 
       <p>Anvil provides command line arguments that allow you to enable or disable plugins at the global level:</p>
 
-      <pre><code>anvil enable {pluginname}
-      </code></pre>
+      <pre><code>anvil enable {pluginname}</code></pre>
 
       <p>or</p>
 
-      <pre><code>anvil disable {pluginname}
-      </code></pre>
+      <pre><code>anvil disable {pluginname}</code></pre>
 
       <p>Disabled plugins should never be loaded into a build session.</p>
 
@@ -355,8 +353,7 @@ red - error</code></pre>
 
       <p>Anvil will check npm for updates to all globally installed plugins with one simple command:</p>
 
-      <pre><code>anvil update
-      </code></pre>
+      <pre><code>anvil update</code></pre>
 
       <p>This command will take longer the more plugins you have installed and the more plugins which require updates from npm. Note: anvil automatically does this every time you install a new anvil version from npm.</p>
 
@@ -364,33 +361,29 @@ red - error</code></pre>
 
       <p>Anvil's build file now supports explicit inclusion only so that only plugins which you specify in the build file will be run as part of the build.</p>
 
-      <pre><code>"plugins": {
-          "include": [ "anvil.one", "anvil.two", ... ]
-      }
-      </code></pre>
+<pre><code>"plugins": {
+    "include": [ "anvil.one", "anvil.two", ... ]
+}</code></pre>
 
       <h3>Excluding Specified Plugins</h3>
 
       <p>Anvil also supports explicit exclusion so that all plugins except for those you specify in the build file will be run as part of the build.</p>
 
-      <pre><code>"plugins": {
-          "exclude": [ "anvil.one", "anvil.two", ... ]
-      }
-      </code></pre>
+<pre><code>"plugins": {
+    "exclude": [ "anvil.one", "anvil.two", ... ]
+}</code></pre>
 
       <h3>Installing Plugins Locally For A Project</h3>
 
       <p>You can now install a plugin locally to a project using npm like so:</p>
 
-      <pre><code>npm install {pluginname}
-      </code></pre>
+      <pre><code>npm install {pluginname}</code></pre>
 
       <p>In order for anvil to know about the plugin, you must add the following option to your build file:</p>
 
-      <pre><code>"plugins": {
-          "local": [ "myLocallyInstalledPluginName" ]
-      }
-      </code></pre>
+<pre><code>"plugins": {
+    "local": [ "myLocallyInstalledPluginName" ]
+}</code></pre>
 
       <p>Please note: if you have already installed a global version of the plugin, anvil will always prefer the locally installed plugin; if you wish to use a global version of the plugin, you must use npm to uninstall the local version. Anvil does not manage locally installed plugins.</p>
 
@@ -399,18 +392,20 @@ red - error</code></pre>
       <p>Special thanks to the following individuals who have contributed source code or ideas to help make anvil less buggy and more useful:</p>
 
       <ul>
-      <li>Jim Cowart</li>
-      <li>Aaron McCall</li>
-      <li>Mike Stenhouse</li>
-      <li>Robert Messerle</li>
-      <li>Mike Hostetler</li>
-      <li>Jonathan Creamer</li>
-      <li>Brian Edgerton</li>
-      <li>Elijah Manor</li>
-      <li>Doug Neiner</li>
-      <li>Eli Perelman</li>
-      <li>Derick Bailey</li>
-      </ul><h1>Legal Bits</h1>
+        <li>Jim Cowart</li>
+        <li>Aaron McCall</li>
+        <li>Mike Stenhouse</li>
+        <li>Robert Messerle</li>
+        <li>Mike Hostetler</li>
+        <li>Jonathan Creamer</li>
+        <li>Brian Edgerton</li>
+        <li>Elijah Manor</li>
+        <li>Doug Neiner</li>
+        <li>Eli Perelman</li>
+        <li>Derick Bailey</li>
+      </ul>
+
+      <h1>Legal Bits</h1>
 
       <p>"Anvil.js"( also referred to as "Anvil") is owned by Alex Robson.  All rights not explicitly granted in the MIT or GPL license are reserved. See the included LICENSE-* files for more details.</p>
 

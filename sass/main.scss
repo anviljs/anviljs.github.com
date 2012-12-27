@@ -68,6 +68,7 @@ h3 { font-size: 46px; line-height: 24px; }
 pre {
 	background-color: #3a3a3a;
 	background-color: rgba(0,0,0,.75);
+	background-image: url(/images/prebg.jpg);
 	border: 1px solid #000;
 	@include border-radius($br2);
 	@include box-shadow(inset 0px 1px 8px rgba(0,0,0,.6));
