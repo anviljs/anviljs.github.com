@@ -258,6 +258,37 @@ pre {
 
 }
 
+.contributors-list { overflow: hidden; margin-bottom: 0; padding: 0;
+
+	li {
+		float: left;
+		list-style: none;
+		width: 33%;
+		@include box-sizing(border-box);
+	}
+
+	a {
+		@include box-sizing(border-box);
+		display: inline-block;
+		padding: 5px 10px 5px 40px;
+		@include border-radius(6px);
+		text-decoration: none;
+		margin-bottom: 15px;
+		width: 90%;
+		background:rgba(255,255,255,.5) url(/images/hmr-icon-20px.png) no-repeat 10px center;
+		font-size: 18px;
+	}
+
+	a:hover {
+		background-color: #fff;
+		text-decoration: underline;
+		@include box-shadow(0 1px 4px rgba(0,0,0,.1));
+	}
+
+}
+
+.legal.content-section { font-size: 14px; }
+
 /* @end Page Content */
 
 

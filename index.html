@@ -50,6 +50,21 @@
           <li><a href="#building-with-build-files">Building With Specific Build Files</a></li>
           <li><a href="#continuous-integration">Continuous Integration</a></li>
           <li><a href="#console-log">Console Log</a></li>
+          <li>
+            <a href="#plugins-tasks">Plugins & Tasks</a>
+            <ul>
+              <li><a href="#plugins">Plugins</a></li>
+              <li><a href="#when-plugins-misbehave">When Plugins Misbehave</a></li>
+              <li><a href="#installing-uninstalling">Installing & Uninstalling</a></li>
+              <li><a href="#enabling-disabling">Enabling & Disabling</a></li>
+              <li><a href="#updating-plugins">Updating Plugins</a></li>
+              <li><a href="#including-specific-plugins">Including Specific Plugins</a></li>
+              <li><a href="#excluding-specific-plugins">Excluding Specific Plugins</a></li>
+              <li><a href="#installing-plugins-locally">Installing Plugins Locally</a></li>
+            </ul>
+          </li>
+          <li><a href="#contributors">Contributors</a></li>
+          <li><a href="#legal">Legal</a></li>
         </ol>
       </nav>
 
@@ -305,27 +320,29 @@ red - error</code></pre>
       </article><!--/#console-log-->
 
 
-      <h1>Plugins &amp; Tasks</h1>
+      <article id="plugins-tasks" class="content-section">
 
-      <p>Anvil has two primary points for extension: plugins (things installed by anvil from npm) and tasks (local plugins).</p>
+        <h2>Plugins &amp; Tasks</h2>
 
-      <h2>Plugins</h2>
+        <p>Anvil has two primary points for extension: plugins (things installed by anvil from npm) and tasks (local plugins).</p>
 
-      <p>Anvil installs plugins from npm to a global location: ~/.anvilplugins/node_modules and keeps a manifest of installed and enabled plugins at: ~/.anvilplugins/plugins.json.</p>
+        <h3 id="plugins">Plugins</h3>
 
-      <p>Once a plugin is installed, anvil will load it and use it in the build process unless you:</p>
+        <p>Anvil installs plugins from npm to a global location: ~/.anvilplugins/node_modules and keeps a manifest of installed and enabled plugins at: ~/.anvilplugins/plugins.json.</p>
 
-      <ul>
-        <li>Disable it globally with '''anvil disable {pluginname}''' at the command line</li>
-        <li>Explicitly include other plugins besides it in the build file</li>
-        <li>Explicitly exclude it in the build file</li>
-      </ul>
+        <p>Once a plugin is installed, anvil will load it and use it in the build process unless you:</p>
 
-      <h3>When Plugins Misbehave</h3>
+        <ul>
+          <li>Disable it globally with '''anvil disable {pluginname}''' at the command line</li>
+          <li>Explicitly include other plugins besides it in the build file</li>
+          <li>Explicitly exclude it in the build file</li>
+        </ul>
+
+      <h4 id="when-plugins-misbehave">When Plugins Misbehave</h4>
 
       <p>Anvil will attempt to automatically disable a plugin that throws an exception that would break the build. This is to try and prevent an installed plugin from breaking your build system.</p>
 
-      <h3>Installing &amp; Uninstalling</h3>
+      <h4 id="installing-uninstalling">Installing &amp; Uninstalling</h4>
 
       <p>Anvil provides simple command line arguments to install or uninstall plugins to itself at a global level:</p>
 
@@ -337,7 +354,7 @@ red - error</code></pre>
 
       <p>You can also install plugins from a file path using the relative path to the plugin directory in place of the plugin's name.</p>
 
-      <h3>Enabling &amp; Disabling</h3>
+      <h4 id="enabling-disabling">Enabling &amp; Disabling</h4>
 
       <p>Anvil provides command line arguments that allow you to enable or disable plugins at the global level:</p>
 
@@ -349,7 +366,7 @@ red - error</code></pre>
 
       <p>Disabled plugins should never be loaded into a build session.</p>
 
-      <h3>Updating Plugins</h3>
+      <h4 id="updating-plugins">Updating Plugins</h4>
 
       <p>Anvil will check npm for updates to all globally installed plugins with one simple command:</p>
 
@@ -357,7 +374,7 @@ red - error</code></pre>
 
       <p>This command will take longer the more plugins you have installed and the more plugins which require updates from npm. Note: anvil automatically does this every time you install a new anvil version from npm.</p>
 
-      <h3>Including Specific Plugins</h3>
+      <h4 id="including-specific-plugins">Including Specific Plugins</h4>
 
       <p>Anvil's build file now supports explicit inclusion only so that only plugins which you specify in the build file will be run as part of the build.</p>
 
@@ -365,7 +382,7 @@ red - error</code></pre>
     "include": [ "anvil.one", "anvil.two", ... ]
 }</code></pre>
 
-      <h3>Excluding Specified Plugins</h3>
+      <h4 id="excluding-specific-plugins">Excluding Specified Plugins</h4>
 
       <p>Anvil also supports explicit exclusion so that all plugins except for those you specify in the build file will be run as part of the build.</p>
 
@@ -373,7 +390,7 @@ red - error</code></pre>
     "exclude": [ "anvil.one", "anvil.two", ... ]
 }</code></pre>
 
-      <h3>Installing Plugins Locally For A Project</h3>
+      <h4 id="installing-plugins-locally">Installing Plugins Locally For A Project</h4>
 
       <p>You can now install a plugin locally to a project using npm like so:</p>
 
@@ -387,71 +404,59 @@ red - error</code></pre>
 
       <p>Please note: if you have already installed a global version of the plugin, anvil will always prefer the locally installed plugin; if you wish to use a global version of the plugin, you must use npm to uninstall the local version. Anvil does not manage locally installed plugins.</p>
 
-      <h1>Contributors</h1>
+      </article><!--/#plugins-tasks-->
 
-      <p>Special thanks to the following individuals who have contributed source code or ideas to help make anvil less buggy and more useful:</p>
 
-      <ul>
-        <li>Jim Cowart</li>
-        <li>Aaron McCall</li>
-        <li>Mike Stenhouse</li>
-        <li>Robert Messerle</li>
-        <li>Mike Hostetler</li>
-        <li>Jonathan Creamer</li>
-        <li>Brian Edgerton</li>
-        <li>Elijah Manor</li>
-        <li>Doug Neiner</li>
-        <li>Eli Perelman</li>
-        <li>Derick Bailey</li>
-      </ul>
+      <div id="contributors" class="contributors content-section">
 
-      <h1>Legal Bits</h1>
+        <h2>Contributors</h2>
 
-      <p>"Anvil.js"( also referred to as "Anvil") is owned by Alex Robson.  All rights not explicitly granted in the MIT or GPL license are reserved. See the included LICENSE-* files for more details.</p>
+        <p>Special thanks to the following individuals who have contributed source code or ideas to help make anvil less buggy and more useful:</p>
 
-      <p>Extensions to Anvil (plugins, commands, tasks, etc.) are not part of Anvil itself, and are the sole property of their respective maintainers.  While every effort is made to ensure accountability, there is absolutely no guarantee, warrantee, or assertion made as to the quality, fitness for a specific purpose, or lack of malice in any given extension.  Extensions published on the npm registry are not affiliated with or endorsed by myself (Alex Robson) or my employer unless otherwise stated in the repository for the extension.</p>
+        <ul class="contributors-list">
+          <li><a href="https://github.com/ifandelse">Jim Cowart</a></li>
+          <li><a href="https://github.com/aaronmccall">Aaron McCall</a></li>
+          <li><a href="https://github.com/mikesten">Mike Stenhouse</a></li>
+          <li><a href="https://github.com/robertmesserle">Robert Messerle</a></li>
+          <li><a href="https://github.com/mikehostetler">Mike Hostetler</a></li>
+          <li><a href="https://github.com/jcreamer898">Jonathan Creamer</a></li>
+          <li><a href="https://github.com/brianedgerton">Brian Edgerton</a></li>
+          <li><a href="https://github.com/elijahmanor">Elijah Manor</a></li>
+          <li><a href="https://github.com/dcneiner">Doug Neiner</a></li>
+          <li><a href="https://github.com/eliperelman">Eli Perelman</a></li>
+          <li><a href="https://github.com/derickbailey">Derick Bailey</a></li>
+        </ul>
 
-      <p>If you have a complaint about an extension, and cannot resolve it with the package owner, please express your concerns to <a href="mailto:anviljs@gmail.com">anviljs@gmail.com</a>.</p>
+      </div><!--/#contributors-->
 
-      <h3>In plain english</h3>
 
-      <p>This is mine; not my employer's. They have graciously supported the efforts and made contributions but are in no way responsible or liable for it's suitability or function.</p>
+      <div id="legal" class="legal content-section">
 
-      <p>If you create and publish an extension, it's yours, and you are solely accountable
-      for it.  Not me, not my employer.</p>
+        <h2>Legal Bits</h2>
 
-      <p>If other people create and publish an extension, it's theirs.  Not mine, not my employer's.</p>
+        <p>"Anvil.js"( also referred to as "Anvil") is owned by <a href="https://github.com/arobson">Alex Robson</a>.  All rights not explicitly granted in the MIT or GPL license are reserved. See the included LICENSE-* files for more details.</p>
 
-      <p>Malicious extensions could be published; consider the author behind the extension and perhaps review the code. There is no vetting process for published extensions.</p>
+        <p>Extensions to Anvil (plugins, commands, tasks, etc.) are not part of Anvil itself, and are the sole property of their respective maintainers.  While every effort is made to ensure accountability, there is absolutely no guarantee, warrantee, or assertion made as to the quality, fitness for a specific purpose, or lack of malice in any given extension.  Extensions published on the npm registry are not affiliated with or endorsed by myself (Alex Robson) or my employer unless otherwise stated in the repository for the extension.</p>
 
-      <p>If this concerns you, inspect the source before installing or using any extension.</p>
+        <p>If you have a complaint about an extension, and cannot resolve it with the package owner, please express your concerns to <a href="mailto:anviljs@gmail.com">anviljs@gmail.com</a>.</p>
+
+        <h3>In plain english</h3>
+
+        <p>This is mine; not my employer's. They have graciously supported the efforts and made contributions but are in no way responsible or liable for it's suitability or function.</p>
+
+        <p>If you create and publish an extension, it's yours, and you are solely accountable
+        for it.  Not me, not my employer.</p>
+
+        <p>If other people create and publish an extension, it's theirs.  Not mine, not my employer's.</p>
+
+        <p>Malicious extensions could be published; consider the author behind the extension and perhaps review the code. There is no vetting process for published extensions.</p>
+
+        <p>If this concerns you, inspect the source before installing or using any extension.</p>
+
+      </div><!--/#legal-->
 
 
     </section><!--/.page-right-->
-
-
-    <div class="wrapper">
-      <header>
-
-
-
-
-
-        <ul>
-          <li><a class="buttons github" href="https://github.com/anviljs">GitHub Profile</a></li>
-        </ul>
-
-      </header>
-      <section>
-
-
-      </section>
-
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-      </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 
   </body>
 </html>

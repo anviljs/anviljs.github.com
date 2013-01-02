@@ -289,4 +289,46 @@ pre {
   .page-content h3 {
     margin-top: 40px; }
 
+/* line 261, ../sass/main.scss */
+.contributors-list {
+  overflow: hidden;
+  margin-bottom: 0;
+  padding: 0; }
+  /* line 263, ../sass/main.scss */
+  .contributors-list li {
+    float: left;
+    list-style: none;
+    width: 33%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  /* line 270, ../sass/main.scss */
+  .contributors-list a {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 5px 10px 5px 40px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.5) url(/images/hmr-icon-20px.png) no-repeat 10px center;
+    font-size: 18px; }
+  /* line 282, ../sass/main.scss */
+  .contributors-list a:hover {
+    background-color: #fff;
+    text-decoration: underline;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); }
+
+/* line 290, ../sass/main.scss */
+.legal.content-section {
+  font-size: 14px; }
+
 /* @end Page Content */
