@@ -54,6 +54,7 @@ body {
 h2, h3 {
   font-family: "blanch";
   font-weight: normal;
+  /* for FF */
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 3px; }
@@ -182,16 +183,24 @@ pre {
       text-align: left;
       padding-left: 30px;
       font-size: 14px;
-      overflow: scroll;
+      overflow-y: scroll;
+      overflow-x: hidden;
       max-height: 200px; }
-    /* line 167, ../sass/main.scss */
+    /* line 168, ../sass/main.scss */
     .page-header .documentation-nav li {
       margin-bottom: 5px; }
-    /* line 169, ../sass/main.scss */
+    /* line 170, ../sass/main.scss */
     .page-header .documentation-nav a {
       color: #fff;
       text-decoration: none; }
-  /* line 173, ../sass/main.scss */
+    /* line 172, ../sass/main.scss */
+    .page-header .documentation-nav a:hover {
+      color: #c42026;
+      text-decoration: underline; }
+    /* line 173, ../sass/main.scss */
+    .page-header .documentation-nav a:visited {
+      color: #ababab; }
+  /* line 177, ../sass/main.scss */
   .page-header .compatibility {
     position: absolute;
     bottom: 55px;
@@ -201,7 +210,7 @@ pre {
     font-size: 12px;
     letter-spacing: 2px;
     color: #7d7d7d; }
-    /* line 183, ../sass/main.scss */
+    /* line 187, ../sass/main.scss */
     .page-header .compatibility .logo-icons {
       text-indent: 100%;
       white-space: nowrap;
@@ -210,10 +219,9 @@ pre {
       height: 35px;
       background: url(/images/compicon.png) no-repeat center center;
       display: inline-block;
-      position: relative;
-      top: -10px;
+      vertical-align: middle;
       margin-left: 10px; }
-  /* line 199, ../sass/main.scss */
+  /* line 202, ../sass/main.scss */
   .page-header .appendto-link {
     position: absolute;
     bottom: 0;
@@ -225,21 +233,21 @@ pre {
     font-size: 12px;
     letter-spacing: 2px;
     border-top: 1px solid rgba(255, 255, 255, 0.15); }
-    /* line 211, ../sass/main.scss */
+    /* line 214, ../sass/main.scss */
     .page-header .appendto-link a {
       color: #c42026;
       text-decoration: none; }
-    /* line 212, ../sass/main.scss */
+    /* line 215, ../sass/main.scss */
     .page-header .appendto-link a:hover {
       text-decoration: underline; }
 
 /* @end page header */
 /* @group Page Content -------------------- */
-/* line 221, ../sass/main.scss */
+/* line 224, ../sass/main.scss */
 .page-content {
   margin-left: 352px;
   padding: 18px 22px 22px; }
-  /* line 223, ../sass/main.scss */
+  /* line 226, ../sass/main.scss */
   .page-content .tagline {
     background: url(/images/h1-icon-bg.png) no-repeat center center;
     height: 96px;
@@ -251,8 +259,10 @@ pre {
     line-height: 40px;
     letter-spacing: 3px;
     word-spacing: 3px;
-    padding-top: 38px; }
-  /* line 238, ../sass/main.scss */
+    padding-top: 38px;
+    font-weight: normal;
+    /* for FF */ }
+  /* line 242, ../sass/main.scss */
   .page-content .content-section {
     background-color: #eeeeee;
     background-color: rgba(255, 255, 255, 0.5);
@@ -266,16 +276,16 @@ pre {
     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); }
-    /* line 246, ../sass/main.scss */
+    /* line 250, ../sass/main.scss */
     .page-content .content-section p {
       margin: 1em 0 0; }
-  /* line 249, ../sass/main.scss */
+  /* line 253, ../sass/main.scss */
   .page-content pre:last-child {
     margin-bottom: 0; }
-  /* line 251, ../sass/main.scss */
+  /* line 255, ../sass/main.scss */
   .page-content a {
     color: #c42026; }
-  /* line 253, ../sass/main.scss */
+  /* line 257, ../sass/main.scss */
   .page-content h3 {
     margin-top: 40px; }
 

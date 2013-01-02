@@ -56,7 +56,7 @@ body{
 
 h2, h3 {
 	font-family: "blanch";
-	font-weight: normal;
+	font-weight: normal; /* for FF */
 	margin: 0;
 	text-transform: uppercase;
 	letter-spacing: 3px; }
@@ -161,12 +161,16 @@ pre {
 			text-align: left;
 			padding-left: 30px;
 			font-size: 14px;
-			overflow: scroll;
+			overflow-y: scroll;
+			overflow-x: hidden;
 			max-height: 200px; }
 
 		li { margin-bottom: 5px; }
 
 		a { color: #fff; text-decoration: none; }
+
+		a:hover { color: $red; text-decoration: underline; }
+		a:visited { color: $lightgray; }
 
 	}
 
@@ -188,8 +192,7 @@ pre {
 			height: 35px;
 			background: url(/images/compicon.png) no-repeat center center;
 			display: inline-block;
-			position: relative;
-			top: -10px;
+			vertical-align: middle;
 			margin-left: 10px;
 
 		}
@@ -232,6 +235,7 @@ pre {
 		letter-spacing: 3px;
 		word-spacing: 3px;
 		padding-top: 38px;
+		font-weight: normal; /* for FF */
 
 	}
 
