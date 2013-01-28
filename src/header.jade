@@ -1,0 +1,74 @@
+doctype 5
+//if lt IE 7
+	html( class="lt-ie9 lt-ie8 lt-ie7" )
+//if IE 7
+	html( class="lt-ie9 lt-ie8" )
+//if IE 8
+	html( class="lt-ie9" )
+//if gt IE 8
+	html( class="" )
+
+head
+	meta( charset="utf-8" )
+	meta( http-equiv="X-UA-Compatible", content="chrome=1" )
+	title Anvil JS - Hammer Your Code Into Shape
+
+	//
+		link rel="stylesheet" href="stylesheets/styles.css">
+		<link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+	link( rel="stylesheet", href="/public/css/main.css" )
+	script( src="/public/javascripts/scale.fix.js" )
+	script( src="http://code.jquery.com/jquery-1.9.0.js" )
+	script( src="http://twitter.github.com/bootstrap/assets/js/bootstrap-scrollspy.js" )
+	meta( name="viewport", content="width=device-width, initial-scale=1, user-scalable=no" )
+	//if lt IE 9
+		script( src="//html5shiv.googlecode.com/svn/trunk/html5.js" )
+	script
+		$( function() {
+			$("#navbar").scrollspy( { offset: 20 } );	
+		} );
+
+body( data-spy="scroll", data-target="#navbar" )
+	header( class="page-header slide" )
+
+		img( class="anvil-logo", src="/public/images/anvil-logo.png", alt="Anvil JS", width="312", height="90" )
+
+		div( class="installation" )
+			h3 Install Via NPM
+			pre 
+				code npm install anvil.js -g
+		// /.installation
+
+		div( class="github-links" )
+			a( class="watch", href="https://github.com/anviljs/anvil.js" ) Watch on Github
+			a( class="fork", href="https://github.com/anviljs/anvil.js" ) Fork on Github
+
+		nav( class="documentation-nav" )
+			h3
+				span( class="icon" ) Navigation
+			ol( class="content-outline" )
+				block nav
+
+			div( class="compatibility" )
+				p 
+					span Compatible with 
+					span( class="logo-icons" ) Microsoft Windows, Apple OS X, and Linux
+				p
+
+			div( class="appendto-link" )
+				p 
+					span Sponsored By 
+					span: a( href="http://appendto.com" ) appendTo
+
+	// /.page-left
+	
+	section( class="page-content" )
+		div#navbar
+			ul( class="page-nav nav" )
+				//h3 Sections
+				block page-nav
+
+		block content
+			#spacer
+	// /.page-right

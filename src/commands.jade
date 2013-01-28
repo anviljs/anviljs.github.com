@@ -1,0 +1,32 @@
+extends main-nav
+
+block append page-nav
+	li: a( href="#intro" ) Intro
+	li: a( href="#lifecycle" ) Lifecycle
+	li: a( href="#arguments" ) Arguments
+	li: a( href="#configuration" ) Configuration
+	li: a( href="#example" ) Example
+	
+
+block append content
+	h1( class="tagline" ) Commands
+
+	article#intro( class="content-section" )
+		:markdown
+			## Introduction
+
+	article#lifecycle( class="content-section" )
+		:markdown
+			## Lifecycle
+
+	article#arguments( class="content-section" )
+		:markdown
+			## Arguments
+
+	article#configuration( class="content-section" )
+		:markdown
+			## Configuration
+
+	article#Example( class="content-section" )
+		:markdown
+			## Example

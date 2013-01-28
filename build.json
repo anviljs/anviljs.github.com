@@ -1,0 +1,19 @@
+{
+	"output": { 
+		"full": "./public",
+		"partial": {
+			"**/index.html": "./"
+		}
+	},
+	"httpPaths": {
+		"/": "./"
+	},
+	"anvil.compass": {
+		"config_file": "./compass.config.rb"
+	},
+	"dependencies": [
+		"anvil.template",
+		"anvil.jade",
+		"anvil.compass"
+	]
+}

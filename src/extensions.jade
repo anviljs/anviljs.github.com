@@ -1,0 +1,38 @@
+extends main-nav
+
+block append page-nav
+	li: a( href="#intro" ) Intro
+	li: a( href="#managing" ) Managing
+	li: a( href="#authoring" ) Authoring
+	li: a( href="#npm" ) NPM
+	li: a( href="#local" ) Local
+	
+
+block append content
+	h1( class="tagline" ) Extensions
+
+	article#intro( class="content-section" )
+		:markdown
+			## Intro
+
+
+	article#managing( class="content-section" )
+		:markdown
+			## Managing
+
+
+	article#authoring( class="content-section" )
+		:markdown
+			## Authoring
+
+
+	article#npm( class="content-section" )
+		:markdown
+			## NPM
+
+
+	article#local( class="content-section" )
+		:markdown
+			## Local
+
+			

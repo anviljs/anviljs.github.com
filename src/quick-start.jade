@@ -1,0 +1,194 @@
+extends main-nav
+
+block append page-nav
+	li: a( href="#install" ) Install
+	li: a( href="#install-extension" ) Extensions
+	li: a( href="#create-new-project" ) New project
+	li: a( href="#build" ) Build
+	li: a( href="#install-test-fx" ) Testing
+	li: a( href="#testem" ) Testem
+	li: a( href="#ci" ) CI
+
+block append content
+	h1( class="tagline" ) Quick Start Guide
+
+	article#install( class="content-section" )
+		:markdown
+			## Install  
+				```plain
+				npm install anvil.js -g
+				```  
+			Verify the install completed successfully:  
+				```plain
+				anvil -v
+				#.#.# <-- you should see some numbers
+				```
+			If you don't get a version, proceed to [Troubleshooting](troubleshooting)
+
+	article#install-extension( class="content-section" )
+		:markdown
+			## Install An Extension
+			Anvil installs extensions to itself from NPM. Let's install a scaffold package to use for this quick start:
+			```plain
+			anvil install anvil.demo.scaffolds
+			```
+			You should see the NPM output and then a message that the package was successfully installed. To verify, get a list of scaffolds (you should see the three demo scaffolds somewhere in the list):
+			```plain
+				anvil scaffolds
+				Installed scaffolds:
+				. . . 
+				demoProject
+				demoModule
+				demoSpec
+				. . .
+			```
+			Congratulations! You've just installed an extension to Anvil that contained scaffolds.
+
+	article#create-new-project( class="content-section" )
+		:markdown
+			## Create A New Project
+			Let's use the freshly installed demo scaffolds to get a really contrived project started!
+			```plain
+			anvil new demoProject
+			```
+			You'll be prompted to name your project, pick a license and then choose whether or not you want to generate a package file (hint: do this). Make up a cool project name! (I chose anviltastic) Now cd to your new project folder and explore the structure a bit:
+			```plain
+			cd anviltastic
+			ls
+			```
+			You'll see the following directories and files:
+			```plain
+			|-lib
+			|-src
+			|-spec
+			|-.gitignore
+			|-build.json
+			|-header.js
+			|-LICENSE-*
+			|-package.json
+			|-README.md
+			```
+			Sadly, there is nothing to build yet, so let's fix that…
+
+			```plain
+			anvil new demoModule
+			module name? NewThing
+			```
+			Answer the friendly prompts and behold the result of your labor!
+			```plain
+			|-lib
+			|-src
+				|-newthing.js
+			|-spec
+			|-.gitignore
+			|-build.json
+			|-header.js
+			|-LICENSE-*
+			|-package.json
+			|-README.md
+			```
+			If you were to cat the guts of the file, you'd see:
+			```javascript
+			module.exports = function() {
+				var NewThing = function() {
+				};
+				return new NewThing();
+			}
+			```
+			Nothing fancy going on here, but it's something to start with.
+
+	article#build( class="content-section" )
+		:markdown
+			## Build!
+			Since our project is setup according to Anvil conventions, we can simply type:
+			```plain
+			anvil
+			```
+			and get a build. Verify that the build completed successfully by listing the contents of the lib folder. Spoiler alert: it will have your node module's source with a header at the beginning.
+
+			Getting a simple build is great, but a bit boring, let's get some tests going.
+
+	article#install-test-fx( class="content-section" )
+		:markdown
+			## Installing A Test Framework
+			For this demo, I'm using Mocha and Should. Let's install those from NPM:
+			```plain
+			npm install mocha -g <-- if you already have it, you can skip this
+			npm install should
+			```
+
+			Now that we have our prerequisites, let's create a spec file from our demo scaffolds:
+			```plain
+			anvil new demoScaffold
+			spec name? NewThing
+			```
+			Answer the prompts and then check the contents of your spec folder:
+			```plain
+			|-lib
+			|-src
+				|-newthing.js
+			|-spec
+				|-newthing.spec.js
+			|-.gitignore
+			|-build.json
+			|-header.js
+			|-LICENSE-*
+			|-package.json
+			|-README.md
+			```
+
+			If you look at the contents, you'll see this:
+			```javascript
+			require( "should" );
+			var NewThing = require("./src/NewThing");
+
+			describe( "Define a specification", function() {
+				it( "should do something awesome", function() {
+					true.should.be.ok;
+				} );
+			} );
+			```
+
+	article#testem( class="content-section" )
+		:markdown
+			## Testem Integration
+			Anvil pre-installs the testem extension (anvil.testem) to itself to assist with running tests across multiple targets. Testem doesn't have out of the box Mocha support, however, so we'll need to define a launcher in our build.json file. Open the build.json file in your favorite editor and add everything starting with the top level "anvil.testem" property:
+
+			```javascript
+			{
+				"source": "src",
+				"spec": "spec",
+				"output": "lib",
+				"anvil.testem": {
+					"launchers": {
+						"Mocha": {
+							"command": "mocha spec/*.spec.js -- reporter spec"
+						}
+					},
+					"launch": "Mocha"
+				}
+			}
+			```
+			We've just defined a process-based launcher for testem that tells testem how to run mocha for us.
+
+	article#ci( class="content-section" )
+		:markdown
+			## Testing and CI
+			Anvil has a CI mode where it will build (and test) continuously triggered by files changes. All builds triggered by file changes should *only* rebuild files affected by the change. CI mode is enabled with the --ci flag.
+
+			To run testem as part of the build, include a --testem flag. This will launch testem's multi-tab interface in the command line which you can navigate with arrow keys (mouse controls don't work with this).
+
+			Let's launch both together in our project:
+				```plain
+				anvil --ci --testem
+				```
+
+			You should see one test complete successfully. If you open your project in your favorite editor check to see what happens when you:
+
+			* Open newthing.js and save the file even without making changes?
+			* Open newthing.spec.js and save the file even without making changes?  
+			
+	article( class="content-section" )
+		:markdown
+			## Build Cool Stuff!
+			You've just built a new project with Anvil. At this point you can start using Anvil in your own projects.

@@ -1,0 +1,35 @@
+extends main-nav
+
+block append page-nav
+	li: a( href="#intro" ) Intro
+	li: a( href="#source" ) Source
+	li: a( href="#output" ) Output
+	li: a( href="#specifications" ) Specifications
+	li: a( href="#build-file" ) Build File
+
+block append content
+	h1( class="tagline" ) Conventions
+
+	article#intro( class="content-section" )
+		:markdown
+			## Intro
+
+
+	article#source( class="content-section" )
+		:markdown
+			## Source
+
+
+	article#output( class="content-section" )
+		:markdown
+			## Output
+
+
+	article#specifications( class="content-section" )
+		:markdown
+			## Specifications
+
+
+	article#build-file( class="content-section" )
+		:markdown
+			## Build File

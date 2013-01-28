@@ -1,0 +1,107 @@
+extends header
+
+block append nav
+	li: a( href="index.html" ) About
+	li: a( href="quick-start.html" ) Quick Start
+	li: a( href="convention.html" ) Conventions
+	li: a( href="configuration.html" ) Configuration
+	li: a( href="extensions.html" ) Extensions
+	ul
+		li: a( href="plugins.html" ) Plugins
+		li: a( href="commands.html" ) Commands
+		li: a( href="scaffolds.html" ) Scaffolds
+		li: a( href="tasks.html" ) Tasks
+
+block append page-nav
+	li: a( href="#about" ) about
+	li: a( href="#features" ) features
+	li: a( href="#contributors" ) contributors
+	li: a( href="#legal" ) legal
+
+block append content
+	h1( class="tagline" ) Hammer your code into shape
+	article#about( class="content-section" )
+		:markdown
+			## About
+	
+			Build tools that require a lot of explicit/declarative instructions are distracting.
+			Anvil is a build system with an extension-based architecture that prefers convention over configuration. There are a lot of great ways to add new features or change almost any behavior as needed.  
+			
+			### This Site
+			This site is a group effort to document the features and some of the extensions to Anvil. The source to the site itself is hosted [here](http://github.com/anviljs/anviljs.github.com).
+			If you so desire, you can submit pull requests to add documentation for your extensions or for things about the system you'd like to see covered.  
+		// /#about-anvil
+	article#features( class="content-section" )
+		
+			h2 Basic Features
+	
+			p All parts of the build process are implemented as extensions (specifically as build plugins). Some extensions ship along with anvil's source so that it can do _something_ out of the box. Most of the interesting features will likely be extensions that you install.
+	
+			p A baseline install can do the following:
+			ul
+				li Install, remove, enable or disable extensions
+				li Automatically install any extensions your build file defines as dependencies
+				li Run local extensions (an extension that's not installed from npm)
+				li Continuously and incrementally build the project as files change
+				li Host static resources in an HTTP server
+					ul
+						li Auto-refresh pages in the browser during CI mode
+						li Provides APIs to extensions for customized behavior
+				li Start and manage external processes
+				li Combine resource files through a comment-based import syntax
+				li Concat resource files in specified order using
+					ul
+						li JSON or YAML file that lists files to create from other files
+						li individual JSON or YAML files
+				li Replace tokens (with customizable syntax) in source with 
+					ul
+						li values from package.json
+						li JSON or YAML key/value files
+				li Add file headers to final build output based on output file type
+				li Create default build files based on installed extensions
+	
+		// /#what-does-it-do
+	#contributors( class="contributors content-section" )
+		h2 Contributors
+		p Special thanks to the following individuals who have contributed source code or ideas to help make anvil less buggy and more useful:
+	
+		ul( class="contributors-list" )
+			li: a( href="https://github.com/dcneiner" ) Doug Neiner
+			li: a( href="https://github.com/eliperelman" ) Eli Perelman
+			li: a( href="https://github.com/jcreamer898" ) Jonathan Creamer
+			li: a( href="https://github.com/brianedgerton" ) Brian Edgerton
+			li: a( href="https://github.com/ifandelse" ) Jim Cowart
+			li: a( href="https://github.com/elijahmanor" ) Elijah Manor
+			li: a( href="https://github.com/aaronmccall" ) Aaron McCall
+			li: a( href="https://github.com/mikesten" ) Mike Stenhouse
+			li: a( href="https://github.com/robertmesserle" ) Robert Messerle
+			li: a( href="https://github.com/mikehostetler" ) Mike Hostetler
+			li: a( href="https://github.com/derickbailey" ) Derick Bailey
+		// /#contributors
+	article#legal( class="legal content-section" )
+		h2 Legal Bits
+	
+		p
+			span "Anvil.js"( also referred to as "Anvil") is owned by 
+			a( href="https://github.com/arobson" ) Alex Robson
+			span.  All rights not explicitly granted in the MIT or GPL license are reserved. See the included LICENSE-* files for more details.
+	
+		p Extensions to Anvil (plugins, commands, tasks, etc.) are not part of Anvil itself, and are the sole property of their respective maintainers.  While every effort is made to ensure accountability, there is absolutely no guarantee, warrantee, or assertion made as to the quality, fitness for a specific purpose, or lack of malice in any given extension.  Extensions published on the npm registry are not affiliated with or endorsed by myself (Alex Robson) or my employer unless otherwise stated in the repository for the extension.
+	
+		p 
+			span If you have a complaint about an extension, and cannot resolve it with the package owner, please express your concerns to 
+			a( href="mailto:anviljs@gmail.com" ) anviljs@gmail.com.
+	
+		h3 In plain english
+	
+		p This is mine; not my employer's. They have graciously supported the efforts and made contributions but are in no way responsible or liable for it's suitability or function.
+	
+		p If you create and publish an extension, it's yours, and you are solely accountable for it. Not me, not my employer.
+	
+		p If other people create and publish an extension, it's theirs.  Not mine, not my employer's.
+	
+		p Malicious extensions could be published; consider the author behind the extension and perhaps review the code. There is no vetting process for published extensions.
+	
+		p If this concerns you, inspect the source before installing or using any extension.
+	
+		// /#legal

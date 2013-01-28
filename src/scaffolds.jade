@@ -1,0 +1,48 @@
+extends main-nav
+
+block append page-nav
+	li: a( href="#intro" ) Intro
+	li: a( href="#lifecycle" ) Lifecycle
+	li: a( href="#templating" ) Templating
+	li: a( href="#prompts" ) Prompts
+	li: a( href="#output" ) Output
+	li: a( href="#tasks" ) Tasks
+	li: a( href="#example" ) Example
+	
+
+block append content
+	h1( class="tagline" ) Scaffolds
+
+	article#intro( class="content-section" )
+		:markdown
+			## Intro
+
+
+	article#lifecycle( class="content-section" )
+		:markdown
+			## Lifecycle
+
+
+	article#templating( class="content-section" )
+		:markdown
+			## Templating
+
+
+	article#prompts( class="content-section" )
+		:markdown
+			## Prompts
+
+
+	article#output( class="content-section" )
+		:markdown
+			## Output
+
+
+	article#tasks( class="content-section" )
+		:markdown
+			## Tasks
+
+
+	article#example( class="content-section" )
+		:markdown
+			## Example
