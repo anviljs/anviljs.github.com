@@ -376,6 +376,14 @@ article h2 {
 .page-content h3 {
   margin-top: 40px;
 }
+.page-content #question {
+  font-size: 1.2em;
+}
+.page-content #answer {
+  font-size: 1.2em;
+  padding-top: 0;
+  margin-top: 0;
+}
 
 .contributors-list {
   overflow: hidden;
