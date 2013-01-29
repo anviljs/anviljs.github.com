@@ -342,6 +342,15 @@ article {
 
 	h3 { margin-top: 40px; }
 
+	#question {
+		font-size: 1.2em;
+	}
+
+	#answer {
+		font-size: 1.2em;
+		padding-top: 0;
+		margin-top: 0;
+	}
 }
 
 .contributors-list { overflow: hidden; margin-bottom: 0; padding: 0;
