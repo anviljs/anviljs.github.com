@@ -62,6 +62,7 @@
         <!--h3 Sections-->
         <li><a href="#about">About</a></li>
         <li><a href="#features">Features</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contributors">Contributors</a></li>
         <li><a href="#legal">Legal</a></li>
       </ul>
@@ -112,6 +113,41 @@ If you so desire, you can submit pull requests to add documentation for your ext
       </ul>
     </article>
     <!-- /#what-does-it-do-->
+    <article id="faq" class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <p id="question">Q. How is this different from Grunt?</p>
+      <p id="answer">A. Vastly, they are very different approaches to building projects.</p>
+      <p>Let us count the ways:</p>
+      <p>Imperative vs. Declarative</p>
+      <ul>
+        <li>Grunt takes a more imperative approach; required JS based build files
+          <li>Anvil takes a declarative approach; optional JSON build files</li>
+        </li>
+      </ul>
+      <p>Convention over Configuration</p>
+      <ul>
+        <li>Grunt provides no top-level conventions but unlimited flexibility; tasks can happen in *any* order
+          <li>Anvil has a predefined asynchronous build workflow; plugins identify what activities they belong to</li>
+          <li>Grunt requires a bit of setup per project and a build file in order to start using installed</li>
+          <li>Once Anvil is installed, it will attempt to build projects even if there is no build file.</li>
+        </li>
+      </ul>
+      <p>Extensions</p>
+      <ul>
+        <li>Grunt requires tasks to be installed locally per projects
+          <li>Anvil's extensions are installed globally with optional local overrides</li>
+          <li>Grunt provides tasks as the primary way to define a build</li>
+          <li>Anvil provides 4 types of extensions: plugins, commands, tasks and scaffolds</li>
+        </li>
+      </ul>
+      <p>Another way to think about it is; Grunt can technically do anything but requires more effort to get common things done. Anvil's conventions and concepts satisfy a lot of common use cases with little effort and also provide several ways to extend the system.</p>
+      <p id="question">Q. How is this different from Yeoman?</p>
+      <p id="answer">A. Yeoman is far more opinionated.</p>
+      <p>Yeoman and Anvil are similar in that they pull together many excellent open source libraries in order to help you with your project workflow. Yeoman is different in that it is very opinionated and has been built to use specific libraries for specific features; the end result is a very polished user experience but it comes at the expense of tight coupling to dependencies. Anvil has been designed to be so flexible that you can easily replace any behavior or feature with your own extension using a different set of open source libraries and get exactly the behavior you want. Feel like something's missing? You can add entirely new features and abilities (or even new types of extensions) to Anvil.</p>
+      <p id="question">Q. Why does Anvil install globally?</p>
+      <p id="answer">A. Convenience, simplicity, speed.</p>
+      <p>Less setup effort on a per project basis means less time fiddling with a build system and more time spent on your project. Most of Anvil's extensions that aren't considered "core" to the build are opt-in or non-intrusive so you don't have to worry about a globally installed extension ruining your day. An additional advantage of a global plugins is that Anvil can manage keeping them up-to-date with one simple console command: anvil update. No need to worry about updating individual extensions on a per project basis.</p>
+    </article>
     <div id="contributors" class="contributors content-section">
       <h2>Contributors</h2>
       <p>Special thanks to the following individuals who have contributed source code or ideas to help make anvil less buggy and more useful:</p>
