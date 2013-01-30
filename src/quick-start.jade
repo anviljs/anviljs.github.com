@@ -15,15 +15,18 @@ block append content
 	article#install( class="content-section" )
 		:markdown
 			## Install  
+			Before you begin, you'll want to make sure you have the latest version of [node.js](http://nodejs.org) installed. We recommend using the [Node Version Manager](https://github.com/creationix/nvm) (NVM) instead of installing node.js independently, as you'll be able to easily manage which version of node.js to use for any project. 
+
+			Once you have node.js installed, you can easily install Anvil at the command line using the [Node Package Manager](http://npmjs.org) (NPM) which comes with node.js. 
 				```plain
 				npm install anvil.js -g
 				```  
-			Verify the install completed successfully:  
+			Once Anvil installs completely you can verify that Anvil has been installed successfully:  
 				```plain
 				anvil -v
-				#.#.# <-- you should see some numbers
+				#.#.# <-- you should see some numbers which represent the Anvil version installed
 				```
-			If you don't get a version, proceed to [Troubleshooting](troubleshooting)
+			If you get an error, please proceed to the [Troubleshooting](troubleshooting) guide.
 
 	article#install-extension( class="content-section" )
 		:markdown
