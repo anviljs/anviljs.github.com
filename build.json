@@ -15,5 +15,6 @@
 		"anvil.template",
 		"anvil.jade",
 		"anvil.compass"
-	]
+	],
+	"port": 3082
 }

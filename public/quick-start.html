@@ -115,8 +115,8 @@ ls</code></pre>
 </p>
 <pre><code class="lang-plain">|-lib
 |-src
-|-spec
 |-.gitignore
+|-.npmignore
 |-build.json
 |-header.js
 |-LICENSE-*
@@ -132,8 +132,8 @@ module name? NewThing</code></pre>
 <pre><code class="lang-plain">|-lib
 |-src
  |-newthing.js
-|-spec
 |-.gitignore
+|-.npmignore
 |-build.json
 |-header.js
 |-LICENSE-*
@@ -143,6 +143,7 @@ module name? NewThing</code></pre>
 </p>
 <pre><code class="lang-javascript">module.exports = function() {
  var NewThing = function() {
+
  };
  return new NewThing();
 }</code></pre>
@@ -168,8 +169,8 @@ module name? NewThing</code></pre>
 npm install should</code></pre>
 <p>Now that we have our prerequisites, let&#39;s create a spec file from our demo scaffolds:
 </p>
-<pre><code class="lang-plain">anvil new demoScaffold
-spec name? NewThing</code></pre>
+<pre><code class="lang-plain">anvil new demoSpec
+name of module being tested? NewThing</code></pre>
 <p>Answer the prompts and then check the contents of your spec folder:
 </p>
 <pre><code class="lang-plain">|-lib
@@ -186,7 +187,7 @@ spec name? NewThing</code></pre>
 <p>If you look at the contents, you&#39;ll see this:
 </p>
 <pre><code class="lang-javascript">require( &quot;should&quot; );
-var NewThing = require(&quot;./src/NewThing&quot;);
+var NewThing = require(&quot;../src/newThing&quot;);
 
 describe( &quot;Define a specification&quot;, function() {
  it( &quot;should do something awesome&quot;, function() {
@@ -196,13 +197,10 @@ describe( &quot;Define a specification&quot;, function() {
 
     </article>
     <article id="testem" class="content-section"><h2>Testem Integration</h2>
-<p>Anvil pre-installs the testem extension (anvil.testem) to itself to assist with running tests across multiple targets. Testem doesn&#39;t have out of the box Mocha support, however, so we&#39;ll need to define a launcher in our build.json file. Open the build.json file in your favorite editor and add everything starting with the top level &quot;anvil.testem&quot; property:
+<p>Anvil pre-installs the testem extension (anvil.testem) to itself to assist with running tests across multiple targets. Testem doesn&#39;t have out of the box Mocha support, however, so we&#39;ll need to define a launcher in our build.json file. Open the build.json file in your favorite editor and note that the scaffold for the demoSpec has added &quot;anvil.testem&quot; property:
 
 </p>
 <pre><code class="lang-javascript">{
- &quot;source&quot;: &quot;src&quot;,
- &quot;spec&quot;: &quot;spec&quot;,
- &quot;output&quot;: &quot;lib&quot;,
  &quot;anvil.testem&quot;: {
   &quot;launchers&quot;: {
    &quot;Mocha&quot;: {
@@ -212,7 +210,7 @@ describe( &quot;Define a specification&quot;, function() {
   &quot;launch&quot;: &quot;Mocha&quot;
  }
 }</code></pre>
-<p>We&#39;ve just defined a process-based launcher for testem that tells testem how to run mocha for us.
+<p>This defines a process-based launcher for testem that tells testem how to run mocha for us.
 </p>
 
     </article>

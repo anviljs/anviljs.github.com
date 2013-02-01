@@ -63,8 +63,8 @@ block append content
 			```plain
 			|-lib
 			|-src
-			|-spec
 			|-.gitignore
+			|-.npmignore
 			|-build.json
 			|-header.js
 			|-LICENSE-*
@@ -82,8 +82,8 @@ block append content
 			|-lib
 			|-src
 				|-newthing.js
-			|-spec
 			|-.gitignore
+			|-.npmignore
 			|-build.json
 			|-header.js
 			|-LICENSE-*
@@ -94,6 +94,7 @@ block append content
 			```javascript
 			module.exports = function() {
 				var NewThing = function() {
+
 				};
 				return new NewThing();
 			}
@@ -122,8 +123,8 @@ block append content
 
 			Now that we have our prerequisites, let's create a spec file from our demo scaffolds:
 			```plain
-			anvil new demoScaffold
-			spec name? NewThing
+			anvil new demoSpec
+			name of module being tested? NewThing
 			```
 			Answer the prompts and then check the contents of your spec folder:
 			```plain
@@ -143,7 +144,7 @@ block append content
 			If you look at the contents, you'll see this:
 			```javascript
 			require( "should" );
-			var NewThing = require("./src/NewThing");
+			var NewThing = require("../src/newThing");
 
 			describe( "Define a specification", function() {
 				it( "should do something awesome", function() {
@@ -155,13 +156,10 @@ block append content
 	article#testem( class="content-section" )
 		:markdown
 			## Testem Integration
-			Anvil pre-installs the testem extension (anvil.testem) to itself to assist with running tests across multiple targets. Testem doesn't have out of the box Mocha support, however, so we'll need to define a launcher in our build.json file. Open the build.json file in your favorite editor and add everything starting with the top level "anvil.testem" property:
+			Anvil pre-installs the testem extension (anvil.testem) to itself to assist with running tests across multiple targets. Testem doesn't have out of the box Mocha support, however, so we'll need to define a launcher in our build.json file. Open the build.json file in your favorite editor and note that the scaffold for the demoSpec has added "anvil.testem" property:
 
 			```javascript
 			{
-				"source": "src",
-				"spec": "spec",
-				"output": "lib",
 				"anvil.testem": {
 					"launchers": {
 						"Mocha": {
@@ -172,7 +170,7 @@ block append content
 				}
 			}
 			```
-			We've just defined a process-based launcher for testem that tells testem how to run mocha for us.
+			This defines a process-based launcher for testem that tells testem how to run mocha for us.
 
 	article#ci( class="content-section" )
 		:markdown
