@@ -4,7 +4,9 @@ block append page-nav
 	li: a( href="#intro" ) Intro
 	li: a( href="#source" ) Source
 	li: a( href="#output" ) Output
+	li: a( href="#external" ) External
 	li: a( href="#specifications" ) Specifications
+	li: a( href="#extensions" ) Extensions
 	li: a( href="#build-file" ) Build File
 
 block append content
@@ -13,23 +15,34 @@ block append content
 	article#intro( class="content-section" )
 		:markdown
 			## Intro
-
+			A brief overview of how Anvil and its core plugins will behave without a build file to specify other behavior.
 
 	article#source( class="content-section" )
 		:markdown
 			## Source
-
+			Anvil expects all of your project's source to be under a single subfolder of your project. By default, this folder is "./src". Anvil will traverse this entire hierarchy in order to produce the output of your project. Any external resources that you would like to include in your project should **not** go under this directory structure.
 
 	article#output( class="content-section" )
 		:markdown
 			## Output
+			Anvil will place all of the build output under a single subfolder of your project. By default, this folder is "./lib". While there are a lot of ways to change or add to where build files end up, Anvil keeps it simple out of the box.
 
+	article#external( class="content-section" )
+		:markdown
+			## External Dependencies
+			Any third-party resources that your project requires but Anvil shouldn't touch should be placed within the external folder. By default, this folder is "./ext". Like the source folder, this can contain a deep hierarchy that Anvil will traverse and duplicate the structure of when adding these files to your output. The primary reason for this is so that Anvil plugins (like anvil.uglify) don't try to modify third party resources.
 
 	article#specifications( class="content-section" )
 		:markdown
 			## Specifications
+			Anvil looks for any specifications in "./spec" by default. The primary reason to put your test files where Anvil can find them is so that it will re-run your unit tests when any of the files there change. It should be noted that Anvil does not rebuild the project on test file changes, it only re-runs the test step.
 
+	article#extensions( class="content-section" )
+		:markdown
+			## Local Extensions
+			You can write project-specific extensions for Anvil by placing them in a folder where Anvil knows to look. By default, Anvil expects local extensions to be under the "./extension" folder. Each extension must have it's own subfolder and either contain an index.js file or a package.json file with a lib property telling it which file to load. Anvil will **not** load all files in the subfolder. Please see the pages on [extensions](/public/extensions.html) for more details on how to create these various extensions.
 
 	article#build-file( class="content-section" )
 		:markdown
 			## Build File
+			Anvil's build file is where you provide configuration for Anvil and any local or installed extensions. By default, this file is named "build.json". See the [configuration](/public/configuration.html) page for more details.
