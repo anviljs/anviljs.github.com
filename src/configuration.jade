@@ -2,11 +2,9 @@ extends main-nav
 
 block append page-nav
 	li: a( href="#intro" ) Intro
-	li: a( href="#source" ) Source
-	li: a( href="#output" ) Output
-	li: a( href="#specifications" ) Specifications
 	li: a( href="#build-file" ) Build File
 	li: a( href="#global-prefs" ) Preferences
+	li: a( href="#folders" ) File Structure
 	li: a( href="#extensions" ) Extensions
 
 block append content
@@ -15,27 +13,143 @@ block append content
 	article#intro( class="content-section" )
 		:markdown
 			## Introduction
-
-	article#source( class="content-section" )
-		:markdown
-			## Source
-
-	article#output( class="content-section" )
-		:markdown
-			## Output
-
-	article#specifications( class="content-section" )
-		:markdown
-			## Specifications
+			This is a very simple overview of how configuration through Anvil's build file and preferences file works. Specific configurations for every extension and feature are not covered on this page. Please find specific pages for the feature or extension in question or view the readme file on the extension's repository.
 
 	article#build-file( class="content-section" )
 		:markdown
 			## Build File
+			The build file, "./build.json" by default, is a collection of properties that provide configuration used by Anvil and its extensions during builds and other activities. Configuration provided in a build file will only affect Anvil's behavior for the immediate project. In order to prevent collisions in the global configuration space, every extension receives its own namespace within the configuration. The majority of Anvil's features are implemented as extensions, so it should come as little surprise that a lot of the configuration being provided will take place within a namespace specific to the extension being configured.  
+
+			Example:
+			```javascript  
+			{
+				"output": "./build", // global settings have no namespace
+				"anvil.identify": { // extension specific config block
+					"ignore": [
+						"**/*.orig"
+					]
+				}
+			```
 
 	article#global-prefs( class="content-section" )
+		h2 Preferences
+		p The preferences file, "~/.anvil", behaves exactly like the build file with two exceptions:  
+		ol
+			li The settings in this file will override the defaults for *every* project.
+			li Local build files will *always* override any settings in the preferences file.
 		:markdown
-			## Preferences
+			One example of a good use for this file might be to setup default static route paths for Anvil's HTTP server:  
+			```javascript
+			{
+				"httpPaths": {
+					"/": "./" // will serve the entire project from root
+				}
+			}
+			```
+			This would mean that all your projects would serve their entire folder structure by default during hosting but you could easily override it on a per-project basis. Note: without any configuration, Anvil will serve your output directory from root by default during hosting.
+
+	article#folders( class="content-section" )
+		:markdown
+			## File Structure
+			Anvil has several top-level paths ( see the [convention](/public/conventions.html) page for more details ) which control where it looks for specific kinds of resources.
+
+			### Source
+			Anvil expects all source to be contained under a single folder:
+			```javascript
+			{
+				"source": "./src" // default setting
+			}
+			```
+
+			### Output
+			Anvil will place all build output into a single folder:
+			```javascript
+			{
+				"output": "./lib" // default setting
+			}
+			```
+
+			#### Multiple Output Folders
+			If you want the full output to appear in two places:
+			```javascript
+			{
+				"output": [ "lib", "public" ]
+			}
+			```
+
+			#### Targeted, Partial Output
+			If you need control over what folders specific files or file types are copied to:
+			```javascript
+			{
+				"output": {
+					"full": "lib" // tells anvil to output everything to lib
+					"partial": {
+						"**/*.css": "./css" // all .css files flattened into the ./css folder
+						"**/*.js": "./js" // all .js files  flattened into the ./js folder
+					}
+				}
+			}
+			```
+
+			### Specifications
+			Anvil expects all specifications to be contained under a single folder:
+			```javascript
+			{
+				"spec": "./spec" // default setting
+			}
+			```
+
+			### External Dependencies
+			All external dependencies should be contained within a single folder:
+			```javascript
+			{
+				"external": "./ext" // default setting
+			}
+			```
 
 	article#extensions( class="content-section" )
 		:markdown
 			## Extensions
+			There are three seperate ways Anvil will load extensions during runtime - globally installed and enabled extensions, locally installed extensions (from NPM) and project-specific extensions. There are several ways to change how this behavior works by default.
+
+			### Local Extensions
+			To change where Anvil is looking for local extensions, you can provide the following configuration:
+			```javascript
+			{
+				"localExtensions": "./extensions" // default setting
+			}
+			```
+
+			### Excluding Extensions
+			If you want to exclude specific extensions from being loaded when running Anvil for your project, you can exclude them like this:
+			```javascript
+			{
+				"extensions": {
+					"exclude": [ "anvil.one", "anvil.two" ]
+				}
+			}
+			```
+
+			### Exclusive Extension List
+			If you want to use only specific extensions when running Anvil for your project, you can include them like this:
+			```javascript
+			{
+				"extensions": {
+					"include": [ "anvil.one", "anvil.two" ]
+				}
+			}
+
+			### Locally Installed Extensions
+			If you'd like to override a globally installed extension with a specific version for your project, you must first install it via NPM:
+			```shell
+			npm install anvil.one@0.1.0
+			```
+			If the extension has never been installed globally with 'anvil install', then you must tell Anvil about the extension's presence with the following configuration:
+			```javascript
+			{
+				"extensions": {
+					"local": [ "anvil.one" ]
+				}
+			}
+			```
+			Note: Anvil will always prefer a locally installed extension over a global one.
