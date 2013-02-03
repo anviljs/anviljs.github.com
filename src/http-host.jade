@@ -1,0 +1,31 @@
+extends main-nav
+
+block append page-nav
+	li: a( href="#intro" ) Intro
+	li: a( href="#lifecycle" ) Lifecycle
+	li: a( href="#configuration" ) Configuration
+	li: a( href="#api" ) API
+	
+
+block append content
+	h1( class="tagline" ) HTTP Host
+
+	article#intro( class="content-section" )
+		:markdown
+			## Intro
+
+
+	article#lifecycle( class="content-section" )
+		:markdown
+			## Lifecycle
+
+
+
+	article#configuration( class="content-section" )
+		:markdown
+			## Configuration
+
+
+	article#api( class="content-section" )
+		:markdown
+			## API
