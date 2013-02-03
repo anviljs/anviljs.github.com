@@ -2,7 +2,6 @@ extends main-nav
 
 block append page-nav
 	li: a( href="#intro" ) Intro
-	li: a( href="#lifecycle" ) Lifecycle
 	li: a( href="#configuration" ) Configuration
 	li: a( href="#api" ) API
 	
@@ -13,19 +12,55 @@ block append content
 	article#intro( class="content-section" )
 		:markdown
 			## Intro
+			Anvil's core has a built in HTTP server that is activated with configuration or a command line option:
+			```shell
+			anvil --host
+			```
+			or
+			```javascript
+			{
+				"host": true
+			}
+			```
+			The primary role of the HTTP server is to host static resources. When combined with CI mode, the browser will automatically refresh the page after changes to any source files trigger a build (this happens via socket.io). The HTTP server is started as soon as Anvil completes configuration of all the loaded extensions.  
 
-
-	article#lifecycle( class="content-section" )
-		:markdown
-			## Lifecycle
-
+			### Browser
+			Anvil will automatically launch a browser tab in your default browser pointed to the root of the site at the correct port if you provide the browser argument:
+			```shell
+			anvil --host --browser
+			```
 
 
 	article#configuration( class="content-section" )
 		:markdown
 			## Configuration
-
+			Static routing and port are the two options available for configuration:
+			```javascript
+			{
+				"port": 3080, // default port
+				"httpPaths": {
+					"/" : "./lib" // default route
+				}
+			}
+			```
+			Each key in the httpPaths object is the url path and the value is the file path relative to the project's root.
 
 	article#api( class="content-section" )
 		:markdown
 			## API
+			The following API calls are available off the anvil.http namespace:
+
+			__ .registerPath( url, filePath ) __  
+			Register static files to serve at a specific relative url.
+
+			__ .registerRoute( url, verb, callback ) __  
+			Provide a handler for the url and verb of the form: function( request, response ).  
+
+			__ .registerTopic( topic, callback ) __  
+			Provide a handler for the socket.io topic of the form: function( data, client ) where data is the envelope and client is a handle to the client socket.
+
+			__ .addMiddleware( middleware ) __  
+			Provide a function that can change the result of a call returned to the browser. Middleware is a function of the form: function( body, req, res ) where body is the complete body of the request, and req and res are the original request and response objects provided by express.
+
+			__ .addCompiler( extension, mimeType, compiler ) __  
+			Provide a function that can translate from one source format to another. Extension is the extension (including the leading period, '.coffee') of the original requested file that the compiler can process. MimeType is the resulting format ( 'text/javascript' ). Compiler is a function of the form: function( content, done ) where content is the original source and the done argument is a callback of the form function( result, error ).

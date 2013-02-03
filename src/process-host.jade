@@ -12,14 +12,48 @@ block append content
 	article#intro( class="content-section" )
 		:markdown
 			## Intro
-
+			Anvil's core has a built in process hostthat is activated with configuration or a command line option:
+			```shell
+			anvil --host
+			```
+			or
+			```javascript
+			{
+				"host": true
+			}
+			```
+			The primary role of process host is to launch and manage the lifecycle of node servers or third party services.
 
 	article#lifecycle( class="content-section" )
 		:markdown
 			## Lifecycle
-
-
+			The process host will launch all processes provided in the configuration as soon as the build finishes. In CI mode, the hosted processes can be optionally restarted under specific circumstances. If Anvil stops for any reason, all hosted processes will be shut down.
 
 	article#configuration( class="content-section" )
 		:markdown
 			## Configuration
+			In hosting mode, if processes have been specified in the build file, anvil will start and manage these processes.
+
+			```javascript
+			"processes": {
+				"process-alias": {
+					"command": "",
+					"args": [],
+					"restart": true | false,
+					"ignore": [ "" ],
+					"watch": [ "" ],
+					"killSignal": "" | [ "" ],
+					"stdio": "inherit" | "ignore"
+				}
+			}
+			```
+			### Kill Signals
+			By default, SIGTERM is the signal sent to the process to stop it. In some cases, you'll need to send a SIGINT or some other signal instead. In very rare cases, you may want to send multiple signals; if this is the case you can provide an array of signals.
+
+			### stdio
+			A value of "inherit" will cause the process to print output to Anvil's console. If this gets too noisy, you can use "ignore" to prevent that output from hitting the console.
+
+			### With CI
+			In CI mode, the restart flag set to true will cause anvil to restart the process after a build has completed.
+
+			The ignore and watch arrays allow you to specify (using minimatch's glob format) which files should or should cause the process to restart when changes occur.
