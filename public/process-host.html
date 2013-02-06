@@ -70,27 +70,21 @@
     <div id="spacer"></div>
     <h1 class="tagline">Process Host</h1>
     <article id="intro" class="content-section"><h2>Intro</h2>
-<p>Anvil&#39;s core has a built in process hostthat is activated with configuration or a command line option:
-</p>
+<p>Anvil&#39;s core has a built in process hostthat is activated with configuration or a command line option:</p>
 <pre><code class="lang-shell">anvil --host</code></pre>
-<p>or
-</p>
+<p>or</p>
 <pre><code class="lang-javascript">{
  &quot;host&quot;: true
 }</code></pre>
-<p>The primary role of process host is to launch and manage the lifecycle of node servers or third party services.
-</p>
+<p>The primary role of process host is to launch and manage the lifecycle of node servers or third party services.</p>
 
     </article>
     <article id="lifecycle" class="content-section"><h2>Lifecycle</h2>
-<p>The process host will launch all processes provided in the configuration as soon as the build finishes. In CI mode, the hosted processes can be optionally restarted under specific circumstances. If Anvil stops for any reason, all hosted processes will be shut down.
-</p>
+<p>The process host will launch all processes provided in the configuration as soon as the build finishes. In CI mode, the hosted processes can be optionally restarted under specific circumstances. If Anvil stops for any reason, all hosted processes will be shut down.</p>
 
     </article>
     <article id="configuration" class="content-section"><h2>Configuration</h2>
-<p>In hosting mode, if processes have been specified in the build file, anvil will start and manage these processes.
-
-</p>
+<p>In hosting mode, if processes have been specified in the build file, anvil will start and manage these processes.</p>
 <pre><code class="lang-javascript">&quot;processes&quot;: {
  &quot;process-alias&quot;: {
   &quot;command&quot;: &quot;&quot;,
@@ -103,17 +97,11 @@
  }
 }</code></pre>
 <h3>Kill Signals</h3>
-<p>By default, SIGTERM is the signal sent to the process to stop it. In some cases, you&#39;ll need to send a SIGINT or some other signal instead. In very rare cases, you may want to send multiple signals; if this is the case you can provide an array of signals.
-
-</p>
+<p>By default, SIGTERM is the signal sent to the process to stop it. In some cases, you&#39;ll need to send a SIGINT or some other signal instead. In very rare cases, you may want to send multiple signals; if this is the case you can provide an array of signals.</p>
 <h3>stdio</h3>
-<p>A value of &quot;inherit&quot; will cause the process to print output to Anvil&#39;s console. If this gets too noisy, you can use &quot;ignore&quot; to prevent that output from hitting the console.
-
-</p>
+<p>A value of &quot;inherit&quot; will cause the process to print output to Anvil&#39;s console. If this gets too noisy, you can use &quot;ignore&quot; to prevent that output from hitting the console.</p>
 <h3>With CI</h3>
-<p>In CI mode, the restart flag set to true will cause anvil to restart the process after a build has completed.
-
-</p>
+<p>In CI mode, the restart flag set to true will cause anvil to restart the process after a build has completed.</p>
 <p>The ignore and watch arrays allow you to specify (using minimatch&#39;s glob format) which files should or should cause the process to restart when changes occur.</p>
 
     </article>

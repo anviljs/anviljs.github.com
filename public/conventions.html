@@ -74,33 +74,27 @@
     <div id="spacer"></div>
     <h1 class="tagline">Conventions</h1>
     <article id="intro" class="content-section"><h2>Intro</h2>
-<p>A brief overview of how Anvil and its core plugins will behave without a build file to specify other behavior.
-</p>
+<p>A brief overview of how Anvil and its core plugins will behave without a build file to specify other behavior.</p>
 
     </article>
     <article id="source" class="content-section"><h2>Source</h2>
-<p>Anvil expects all of your project&#39;s source to be under a single subfolder of your project. By default, this folder is &quot;./src&quot;. Anvil will traverse this entire hierarchy in order to produce the output of your project. Any external resources that you would like to include in your project should <strong>not</strong> go under this directory structure.
-</p>
+<p>Anvil expects all of your project&#39;s source to be under a single subfolder of your project. By default, this folder is &quot;./src&quot;. Anvil will traverse this entire hierarchy in order to produce the output of your project. Any external resources that you would like to include in your project should <strong>not</strong> go under this directory structure.</p>
 
     </article>
     <article id="output" class="content-section"><h2>Output</h2>
-<p>Anvil will place all of the build output under a single subfolder of your project. By default, this folder is &quot;./lib&quot;. While there are a lot of ways to change or add to where build files end up, Anvil keeps it simple out of the box.
-</p>
+<p>Anvil will place all of the build output under a single subfolder of your project. By default, this folder is &quot;./lib&quot;. While there are a lot of ways to change or add to where build files end up, Anvil keeps it simple out of the box.</p>
 
     </article>
     <article id="external" class="content-section"><h2>External Dependencies</h2>
-<p>Any third-party resources that your project requires but Anvil shouldn&#39;t touch should be placed within the external folder. By default, this folder is &quot;./ext&quot;. Like the source folder, this can contain a deep hierarchy that Anvil will traverse and duplicate the structure of when adding these files to your output. The primary reason for this is so that Anvil plugins (like anvil.uglify) don&#39;t try to modify third party resources.
-</p>
+<p>Any third-party resources that your project requires but Anvil shouldn&#39;t touch should be placed within the external folder. By default, this folder is &quot;./ext&quot;. Like the source folder, this can contain a deep hierarchy that Anvil will traverse and duplicate the structure of when adding these files to your output. The primary reason for this is so that Anvil plugins (like anvil.uglify) don&#39;t try to modify third party resources.</p>
 
     </article>
     <article id="specifications" class="content-section"><h2>Specifications</h2>
-<p>Anvil looks for any specifications in &quot;./spec&quot; by default. The primary reason to put your test files where Anvil can find them is so that it will re-run your unit tests when any of the files there change. It should be noted that Anvil does not rebuild the project on test file changes, it only re-runs the test step.
-</p>
+<p>Anvil looks for any specifications in &quot;./spec&quot; by default. The primary reason to put your test files where Anvil can find them is so that it will re-run your unit tests when any of the files there change. It should be noted that Anvil does not rebuild the project on test file changes, it only re-runs the test step.</p>
 
     </article>
     <article id="extensions" class="content-section"><h2>Local Extensions</h2>
-<p>You can write project-specific extensions for Anvil by placing them in a folder where Anvil knows to look. By default, Anvil expects local extensions to be under the &quot;./extension&quot; folder. Each extension must have it&#39;s own subfolder and either contain an index.js file or a package.json file with a lib property telling it which file to load. Anvil will <strong>not</strong> load all files in the subfolder. Please see the pages on <a href="/public/extensions.html">extensions</a> for more details on how to create these various extensions.
-</p>
+<p>You can write project-specific extensions for Anvil by placing them in a folder where Anvil knows to look. By default, Anvil expects local extensions to be under the &quot;./extension&quot; folder. Each extension must have it&#39;s own subfolder and either contain an index.js file or a package.json file with a lib property telling it which file to load. Anvil will <strong>not</strong> load all files in the subfolder. Please see the pages on <a href="/public/extensions.html">extensions</a> for more details on how to create these various extensions.</p>
 
     </article>
     <article id="build-file" class="content-section"><h2>Build File</h2>

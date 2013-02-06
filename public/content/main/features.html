@@ -1,0 +1,35 @@
+
+<article id="features" class="content-section">
+  <h2>Basic Features</h2>
+  <p>All parts of the build process are implemented as extensions (specifically as build plugins). Some extensions ship along with anvil's source so that it can do _something_ out of the box. Most of the interesting features will likely be extensions that you install.</p>
+  <p>A baseline install can do the following:</p>
+  <ul>
+    <li>Install, remove, enable or disable extensions</li>
+    <li>Automatically install any extensions your build file defines as dependencies</li>
+    <li>Run local extensions (an extension that's not installed from npm)</li>
+    <li>Continuously and incrementally build the project as files change</li>
+    <li>Host static resources in an HTTP server
+      <ul>
+        <li>Auto-refresh pages in the browser during CI mode</li>
+        <li>Provides APIs to extensions for customized behavior</li>
+      </ul>
+    </li>
+    <li>Start and manage external processes</li>
+    <li>Combine resource files through a comment-based import syntax</li>
+    <li>Concat resource files in specified order using
+      <ul>
+        <li>JSON or YAML file that lists files to create from other files</li>
+        <li>individual JSON or YAML files</li>
+      </ul>
+    </li>
+    <li>Replace tokens (with customizable syntax) in source with 
+      <ul>
+        <li>values from package.json</li>
+        <li>JSON or YAML key/value files</li>
+      </ul>
+    </li>
+    <li>Add file headers to final build output based on output file type</li>
+    <li>Create default build files based on installed extensions</li>
+  </ul>
+</article>
+<!-- /#what-does-it-do-->

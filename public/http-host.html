@@ -70,52 +70,35 @@
     <div id="spacer"></div>
     <h1 class="tagline">HTTP Host</h1>
     <article id="intro" class="content-section"><h2>Intro</h2>
-<p>Anvil&#39;s core has a built in HTTP server that is activated with configuration or a command line option:
-</p>
+<p>Anvil&#39;s core has a built in HTTP server that is activated with configuration or a command line option:</p>
 <pre><code class="lang-shell">anvil --host</code></pre>
-<p>or
-</p>
+<p>or</p>
 <pre><code class="lang-javascript">{
  &quot;host&quot;: true
 }</code></pre>
-<p>The primary role of the HTTP server is to host static resources. When combined with CI mode, the browser will automatically refresh the page after changes to any source files trigger a build (this happens via socket.io). The HTTP server is started as soon as Anvil completes configuration of all the loaded extensions.  
-
-</p>
+<p>The primary role of the HTTP server is to host static resources. When combined with CI mode, the browser will automatically refresh the page after changes to any source files trigger a build (this happens via socket.io). The HTTP server is started as soon as Anvil completes configuration of all the loaded extensions.  </p>
 <h3>Browser</h3>
-<p>Anvil will automatically launch a browser tab in your default browser pointed to the root of the site at the correct port if you provide the browser argument:
-</p>
+<p>Anvil will automatically launch a browser tab in your default browser pointed to the root of the site at the correct port if you provide the browser argument:</p>
 <pre><code class="lang-shell">anvil --host --browser</code></pre>
 
     </article>
     <article id="configuration" class="content-section"><h2>Configuration</h2>
-<p>Static routing and port are the two options available for configuration:
-</p>
+<p>Static routing and port are the two options available for configuration:</p>
 <pre><code class="lang-javascript">{
  &quot;port&quot;: 3080, // default port
  &quot;httpPaths&quot;: {
   &quot;/&quot; : &quot;./lib&quot; // default route
  }
 }</code></pre>
-<p>Each key in the httpPaths object is the url path and the value is the file path relative to the project&#39;s root.
-</p>
+<p>Each key in the httpPaths object is the url path and the value is the file path relative to the project&#39;s root.</p>
 
     </article>
     <article id="api" class="content-section"><h2>API</h2>
-<p>The following API calls are available off the anvil.http namespace:
-
-</p>
-<p><strong> .registerPath( url, filePath ) </strong><br>Register static files to serve at a specific relative url.
-
-</p>
-<p><strong> .registerRoute( url, verb, callback ) </strong><br>Provide a handler for the url and verb of the form: function( request, response ).  
-
-</p>
-<p><strong> .registerTopic( topic, callback ) </strong><br>Provide a handler for the socket.io topic of the form: function( data, client ) where data is the envelope and client is a handle to the client socket.
-
-</p>
-<p><strong> .addMiddleware( middleware ) </strong><br>Provide a function that can change the result of a call returned to the browser. Middleware is a function of the form: function( body, req, res ) where body is the complete body of the request, and req and res are the original request and response objects provided by express.
-
-</p>
+<p>The following API calls are available off the anvil.http namespace:</p>
+<p><strong> .registerPath( url, filePath ) </strong><br>Register static files to serve at a specific relative url.</p>
+<p><strong> .registerRoute( url, verb, callback ) </strong><br>Provide a handler for the url and verb of the form: function( request, response ).  </p>
+<p><strong> .registerTopic( topic, callback ) </strong><br>Provide a handler for the socket.io topic of the form: function( data, client ) where data is the envelope and client is a handle to the client socket.</p>
+<p><strong> .addMiddleware( middleware ) </strong><br>Provide a function that can change the result of a call returned to the browser. Middleware is a function of the form: function( body, req, res ) where body is the complete body of the request, and req and res are the original request and response objects provided by express.</p>
 <p><strong> .addCompiler( extension, mimeType, compiler ) </strong><br>Provide a function that can translate from one source format to another. Extension is the extension (including the leading period, &#39;.coffee&#39;) of the original requested file that the compiler can process. MimeType is the resulting format ( &#39;text/javascript&#39; ). Compiler is a function of the form: function( content, done ) where content is the original source and the done argument is a callback of the form function( result, error ).</p>
 
     </article>

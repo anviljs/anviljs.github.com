@@ -74,26 +74,19 @@
     <div id="spacer"></div>
     <h1 class="tagline">Quick Start Guide</h1>
     <article id="install" class="content-section"><h2>Install</h2>
-<p>Before you begin, you&#39;ll want to make sure you have the latest version of <a href="http://nodejs.org">node.js</a> installed. We recommend using the <a href="https://github.com/creationix/nvm">Node Version Manager</a> (NVM) instead of installing node.js independently, as you&#39;ll be able to easily manage which version of node.js to use for any project. 
-
-</p>
-<p>Once you have node.js installed, you can easily install Anvil at the command line using the <a href="http://npmjs.org">Node Package Manager</a> (NPM) which comes with node.js. 
-</p>
+<p>Before you begin, you&#39;ll want to make sure you have the latest version of <a href="http://nodejs.org">node.js</a> installed. We recommend using the <a href="https://github.com/creationix/nvm">Node Version Manager</a> (NVM) instead of installing node.js independently, as you&#39;ll be able to easily manage which version of node.js to use for any project. </p>
+<p>Once you have node.js installed, you can easily install Anvil at the command line using the <a href="http://npmjs.org">Node Package Manager</a> (NPM) which comes with node.js. </p>
 <pre><code class="lang-plain"> npm install anvil.js -g</code></pre>
-<p>Once Anvil installs completely you can verify that Anvil has been installed successfully:  
-</p>
+<p>Once Anvil installs completely you can verify that Anvil has been installed successfully:  </p>
 <pre><code class="lang-plain"> anvil -v
  #.#.# &lt;-- you should see some numbers which represent the Anvil version installed</code></pre>
-<p>If you get an error, please proceed to the <a href="troubleshooting">Troubleshooting</a> guide.
-</p>
+<p>If you get an error, please proceed to the <a href="troubleshooting">Troubleshooting</a> guide.</p>
 
     </article>
     <article id="install-extension" class="content-section"><h2>Install An Extension</h2>
-<p>Anvil installs extensions to itself from NPM. Let&#39;s install a scaffold package to use for this quick start:
-</p>
+<p>Anvil installs extensions to itself from NPM. Let&#39;s install a scaffold package to use for this quick start:</p>
 <pre><code class="lang-plain">anvil install anvil.demo.scaffolds</code></pre>
-<p>You should see the NPM output and then a message that the package was successfully installed. To verify, get a list of scaffolds (you should see the three demo scaffolds somewhere in the list):
-</p>
+<p>You should see the NPM output and then a message that the package was successfully installed. To verify, get a list of scaffolds (you should see the three demo scaffolds somewhere in the list):</p>
 <pre><code class="lang-plain"> anvil scaffolds
  Installed scaffolds:
  . . . 
@@ -101,20 +94,16 @@
  demoModule
  demoSpec
  . . .</code></pre>
-<p>Congratulations! You&#39;ve just installed an extension to Anvil that contained scaffolds.
-</p>
+<p>Congratulations! You&#39;ve just installed an extension to Anvil that contained scaffolds.</p>
 
     </article>
     <article id="create-new-project" class="content-section"><h2>Create A New Project</h2>
-<p>Let&#39;s use the freshly installed demo scaffolds to get a really contrived project started!
-</p>
+<p>Let&#39;s use the freshly installed demo scaffolds to get a really contrived project started!</p>
 <pre><code class="lang-plain">anvil new demoProject</code></pre>
-<p>You&#39;ll be prompted to name your project, pick a license and then choose whether or not you want to generate a package file (hint: do this). Make up a cool project name! (I chose anviltastic) Now cd to your new project folder and explore the structure a bit:
-</p>
+<p>You&#39;ll be prompted to name your project, pick a license and then choose whether or not you want to generate a package file (hint: do this). Make up a cool project name! (I chose anviltastic) Now cd to your new project folder and explore the structure a bit:</p>
 <pre><code class="lang-plain">cd anviltastic
 ls</code></pre>
-<p>You&#39;ll see the following directories and files:
-</p>
+<p>You&#39;ll see the following directories and files:</p>
 <pre><code class="lang-plain">|-lib
 |-src
 |-.gitignore
@@ -124,13 +113,10 @@ ls</code></pre>
 |-LICENSE-*
 |-package.json
 |-README.md</code></pre>
-<p>Sadly, there is nothing to build yet, so let&#39;s fix that…
-
-</p>
+<p>Sadly, there is nothing to build yet, so let&#39;s fix that…</p>
 <pre><code class="lang-plain">anvil new demoModule
 module name? NewThing</code></pre>
-<p>Answer the friendly prompts and behold the result of your labor!
-</p>
+<p>Answer the friendly prompts and behold the result of your labor!</p>
 <pre><code class="lang-plain">|-lib
 |-src
  |-newthing.js
@@ -141,40 +127,31 @@ module name? NewThing</code></pre>
 |-LICENSE-*
 |-package.json
 |-README.md</code></pre>
-<p>If you were to cat the guts of the file, you&#39;d see:
-</p>
+<p>If you were to cat the guts of the file, you&#39;d see:</p>
 <pre><code class="lang-javascript">module.exports = function() {
  var NewThing = function() {
 
  };
  return new NewThing();
 }</code></pre>
-<p>Nothing fancy going on here, but it&#39;s something to start with.
-</p>
+<p>Nothing fancy going on here, but it&#39;s something to start with.</p>
 
     </article>
     <article id="build" class="content-section"><h2>Build!</h2>
-<p>Since our project is setup according to Anvil conventions, we can simply type:
-</p>
+<p>Since our project is setup according to Anvil conventions, we can simply type:</p>
 <pre><code class="lang-plain">anvil</code></pre>
-<p>and get a build. Verify that the build completed successfully by listing the contents of the lib folder. Spoiler alert: it will have your node module&#39;s source with a header at the beginning.
-
-</p>
-<p>Getting a simple build is great, but a bit boring, let&#39;s get some tests going.
-</p>
+<p>and get a build. Verify that the build completed successfully by listing the contents of the lib folder. Spoiler alert: it will have your node module&#39;s source with a header at the beginning.</p>
+<p>Getting a simple build is great, but a bit boring, let&#39;s get some tests going.</p>
 
     </article>
     <article id="install-test-fx" class="content-section"><h2>Installing A Test Framework</h2>
-<p>For this demo, I&#39;m using Mocha and Should. Let&#39;s install those from NPM:
-</p>
+<p>For this demo, I&#39;m using Mocha and Should. Let&#39;s install those from NPM:</p>
 <pre><code class="lang-plain">npm install mocha -g &lt;-- if you already have it, you can skip this
 npm install should</code></pre>
-<p>Now that we have our prerequisites, let&#39;s create a spec file from our demo scaffolds:
-</p>
+<p>Now that we have our prerequisites, let&#39;s create a spec file from our demo scaffolds:</p>
 <pre><code class="lang-plain">anvil new demoSpec
 name of module being tested? NewThing</code></pre>
-<p>Answer the prompts and then check the contents of your spec folder:
-</p>
+<p>Answer the prompts and then check the contents of your spec folder:</p>
 <pre><code class="lang-plain">|-lib
 |-src
  |-newthing.js
@@ -186,8 +163,7 @@ name of module being tested? NewThing</code></pre>
 |-LICENSE-*
 |-package.json
 |-README.md</code></pre>
-<p>If you look at the contents, you&#39;ll see this:
-</p>
+<p>If you look at the contents, you&#39;ll see this:</p>
 <pre><code class="lang-javascript">require( &quot;should&quot; );
 var NewThing = require(&quot;../src/newThing&quot;);
 
@@ -199,9 +175,7 @@ describe( &quot;Define a specification&quot;, function() {
 
     </article>
     <article id="testem" class="content-section"><h2>Testem Integration</h2>
-<p>Anvil pre-installs the testem extension (anvil.testem) to itself to assist with running tests across multiple targets. Testem doesn&#39;t have out of the box Mocha support, however, so we&#39;ll need to define a launcher in our build.json file. Open the build.json file in your favorite editor and note that the scaffold for the demoSpec has added &quot;anvil.testem&quot; property:
-
-</p>
+<p>Anvil pre-installs the testem extension (anvil.testem) to itself to assist with running tests across multiple targets. Testem doesn&#39;t have out of the box Mocha support, however, so we&#39;ll need to define a launcher in our build.json file. Open the build.json file in your favorite editor and note that the scaffold for the demoSpec has added &quot;anvil.testem&quot; property:</p>
 <pre><code class="lang-javascript">{
  &quot;anvil.testem&quot;: {
   &quot;launchers&quot;: {
@@ -212,23 +186,15 @@ describe( &quot;Define a specification&quot;, function() {
   &quot;launch&quot;: &quot;Mocha&quot;
  }
 }</code></pre>
-<p>This defines a process-based launcher for testem that tells testem how to run mocha for us.
-</p>
+<p>This defines a process-based launcher for testem that tells testem how to run mocha for us.</p>
 
     </article>
     <article id="ci" class="content-section"><h2>Testing and CI</h2>
-<p>Anvil has a CI mode where it will build (and test) continuously triggered by files changes. All builds triggered by file changes should <em>only</em> rebuild files affected by the change. CI mode is enabled with the --ci flag.
-
-</p>
-<p>To run testem as part of the build, include a --testem flag. This will launch testem&#39;s multi-tab interface in the command line which you can navigate with arrow keys (mouse controls don&#39;t work with this).
-
-</p>
-<p>Let&#39;s launch both together in our project:
-</p>
+<p>Anvil has a CI mode where it will build (and test) continuously triggered by files changes. All builds triggered by file changes should <em>only</em> rebuild files affected by the change. CI mode is enabled with the --ci flag.</p>
+<p>To run testem as part of the build, include a --testem flag. This will launch testem&#39;s multi-tab interface in the command line which you can navigate with arrow keys (mouse controls don&#39;t work with this).</p>
+<p>Let&#39;s launch both together in our project:</p>
 <pre><code class="lang-plain"> anvil --ci --testem</code></pre>
-<p>You should see one test complete successfully. If you open your project in your favorite editor check to see what happens when you:
-
-</p>
+<p>You should see one test complete successfully. If you open your project in your favorite editor check to see what happens when you:</p>
 <ul>
 <li>Open newthing.js and save the file even without making changes?</li>
 <li>Open newthing.spec.js and save the file even without making changes?  </li>

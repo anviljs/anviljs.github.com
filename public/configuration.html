@@ -72,16 +72,12 @@
     <div id="spacer"></div>
     <h1 class="tagline">Configuration</h1>
     <article id="intro" class="content-section"><h2>Introduction</h2>
-<p>This is a very simple overview of how configuration through Anvil&#39;s build file and preferences file works. Specific configurations for every extension and feature are not covered on this page. Please find specific pages for the feature or extension in question or view the readme file on the extension&#39;s repository.
-</p>
+<p>This is a very simple overview of how configuration through Anvil&#39;s build file and preferences file works. Specific configurations for every extension and feature are not covered on this page. Please find specific pages for the feature or extension in question or view the readme file on the extension&#39;s repository.</p>
 
     </article>
     <article id="build-file" class="content-section"><h2>Build File</h2>
-<p>The build file, &quot;./build.json&quot; by default, is a collection of properties that provide configuration used by Anvil and its extensions during builds and other activities. Configuration provided in a build file will only affect Anvil&#39;s behavior for the immediate project. In order to prevent collisions in the global configuration space, every extension receives its own namespace within the configuration. The majority of Anvil&#39;s features are implemented as extensions, so it should come as little surprise that a lot of the configuration being provided will take place within a namespace specific to the extension being configured.  
-
-</p>
-<p>Example:
-</p>
+<p>The build file, &quot;./build.json&quot; by default, is a collection of properties that provide configuration used by Anvil and its extensions during builds and other activities. Configuration provided in a build file will only affect Anvil&#39;s behavior for the immediate project. In order to prevent collisions in the global configuration space, every extension receives its own namespace within the configuration. The majority of Anvil&#39;s features are implemented as extensions, so it should come as little surprise that a lot of the configuration being provided will take place within a namespace specific to the extension being configured.  </p>
+<p>Example:</p>
 <pre><code class="lang-javascript">{
  &quot;output&quot;: &quot;./build&quot;, // global settings have no namespace
  &quot;anvil.identify&quot;: { // extension specific config block
@@ -97,42 +93,34 @@
       <ol>
         <li>The settings in this file will override the defaults for *every* project.</li>
         <li>Local build files will *always* override any settings in the preferences file.</li>
-      </ol><p>One example of a good use for this file might be to setup default static route paths for Anvil&#39;s HTTP server:  
-</p>
+      </ol><p>One example of a good use for this file might be to setup default static route paths for Anvil&#39;s HTTP server:  </p>
 <pre><code class="lang-javascript">{
  &quot;httpPaths&quot;: {
   &quot;/&quot;: &quot;./&quot; // will serve the entire project from root
  }
 }</code></pre>
-<p>This would mean that all your projects would serve their entire folder structure by default during hosting but you could easily override it on a per-project basis. Note: without any configuration, Anvil will serve your output directory from root by default during hosting.
-</p>
+<p>This would mean that all your projects would serve their entire folder structure by default during hosting but you could easily override it on a per-project basis. Note: without any configuration, Anvil will serve your output directory from root by default during hosting.</p>
 
     </article>
     <article id="folders" class="content-section"><h2>File Structure</h2>
-<p>Anvil has several top-level paths ( see the <a href="/public/conventions.html">convention</a> page for more details ) which control where it looks for specific kinds of resources.
-
-</p>
+<p>Anvil has several top-level paths ( see the <a href="/public/conventions.html">convention</a> page for more details ) which control where it looks for specific kinds of resources.</p>
 <h3>Source</h3>
-<p>Anvil expects all source to be contained under a single folder:
-</p>
+<p>Anvil expects all source to be contained under a single folder:</p>
 <pre><code class="lang-javascript">{
  &quot;source&quot;: &quot;./src&quot; // default setting
 }</code></pre>
 <h3>Output</h3>
-<p>Anvil will place all build output into a single folder:
-</p>
+<p>Anvil will place all build output into a single folder:</p>
 <pre><code class="lang-javascript">{
  &quot;output&quot;: &quot;./lib&quot; // default setting
 }</code></pre>
 <h4>Multiple Output Folders</h4>
-<p>If you want the full output to appear in two places:
-</p>
+<p>If you want the full output to appear in two places:</p>
 <pre><code class="lang-javascript">{
  &quot;output&quot;: [ &quot;lib&quot;, &quot;public&quot; ]
 }</code></pre>
 <h4>Targeted, Partial Output</h4>
-<p>If you need control over what folders specific files or file types are copied to:
-</p>
+<p>If you need control over what folders specific files or file types are copied to:</p>
 <pre><code class="lang-javascript">{
  &quot;output&quot;: {
   &quot;full&quot;: &quot;lib&quot; // tells anvil to output everything to lib
@@ -143,40 +131,33 @@
  }
 }</code></pre>
 <h3>Specifications</h3>
-<p>Anvil expects all specifications to be contained under a single folder:
-</p>
+<p>Anvil expects all specifications to be contained under a single folder:</p>
 <pre><code class="lang-javascript">{
  &quot;spec&quot;: &quot;./spec&quot; // default setting
 }</code></pre>
 <h3>External Dependencies</h3>
-<p>All external dependencies should be contained within a single folder:
-</p>
+<p>All external dependencies should be contained within a single folder:</p>
 <pre><code class="lang-javascript">{
  &quot;external&quot;: &quot;./ext&quot; // default setting
 }</code></pre>
 
     </article>
     <article id="extensions" class="content-section"><h2>Extensions</h2>
-<p>There are three seperate ways Anvil will load extensions during runtime - globally installed and enabled extensions, locally installed extensions (from NPM) and project-specific extensions. There are several ways to change how this behavior works by default.
-
-</p>
+<p>There are three seperate ways Anvil will load extensions during runtime - globally installed and enabled extensions, locally installed extensions (from NPM) and project-specific extensions. There are several ways to change how this behavior works by default.</p>
 <h3>Local Extensions</h3>
-<p>To change where Anvil is looking for local extensions, you can provide the following configuration:
-</p>
+<p>To change where Anvil is looking for local extensions, you can provide the following configuration:</p>
 <pre><code class="lang-javascript">{
  &quot;localExtensions&quot;: &quot;./extensions&quot; // default setting
 }</code></pre>
 <h3>Excluding Extensions</h3>
-<p>If you want to exclude specific extensions from being loaded when running Anvil for your project, you can exclude them like this:
-</p>
+<p>If you want to exclude specific extensions from being loaded when running Anvil for your project, you can exclude them like this:</p>
 <pre><code class="lang-javascript">{
  &quot;extensions&quot;: {
   &quot;exclude&quot;: [ &quot;anvil.one&quot;, &quot;anvil.two&quot; ]
  }
 }</code></pre>
 <h3>Exclusive Extension List</h3>
-<p>If you want to use only specific extensions when running Anvil for your project, you can include them like this:
-</p>
+<p>If you want to use only specific extensions when running Anvil for your project, you can include them like this:</p>
 <pre><code class="lang-javascript">{
  &quot;extensions&quot;: {
   &quot;include&quot;: [ &quot;anvil.one&quot;, &quot;anvil.two&quot; ]
@@ -187,8 +168,7 @@
 If you&#39;d like to override a globally installed extension with a specific version for your project, you must first install it via NPM:
 ```shell
 npm install anvil.one@0.1.0</code></pre>
-<p>If the extension has never been installed globally with &#39;anvil install&#39;, then you must tell Anvil about the extension&#39;s presence with the following configuration:
-</p>
+<p>If the extension has never been installed globally with &#39;anvil install&#39;, then you must tell Anvil about the extension&#39;s presence with the following configuration:</p>
 <pre><code class="lang-javascript">{
  &quot;extensions&quot;: {
   &quot;local&quot;: [ &quot;anvil.one&quot; ]
