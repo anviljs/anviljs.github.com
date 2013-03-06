@@ -107,6 +107,7 @@ article h2 {
   background: url(/public/images/bgtexture2.png) repeat-y 100% top;
   color: #fff;
   text-align: center;
+  overflow-y: scroll;
 }
 .page-header .anvil-logo {
   margin: 44px auto 33px;
@@ -177,6 +178,7 @@ article h2 {
   -o-border-radius: 6px;
   border-radius: 6px;
   padding: 10px;
+  margin-bottom: 120px;
 }
 .page-header .documentation-nav h3 {
   margin: 10px 0;
@@ -205,7 +207,7 @@ article h2 {
   text-decoration: underline;
 }
 .page-header .compatibility {
-  position: absolute;
+  position: fixed;
   bottom: 55px;
   left: 37px;
   font-family: "museosansbold";
@@ -226,10 +228,10 @@ article h2 {
   margin-left: 10px;
 }
 .page-header .appendto-link {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 352px;
   background-color: #000;
   font-family: "museosansbold";
   text-transform: uppercase;
