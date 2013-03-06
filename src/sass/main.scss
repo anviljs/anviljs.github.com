@@ -104,6 +104,7 @@ article {
 	background: url(/public/images/bgtexture2.png) repeat-y 100% top;
 	color: #fff;
 	text-align: center;
+	overflow-y: scroll;
 
 	.anvil-logo { margin: 44px auto 33px; display: block; }
 
@@ -162,6 +163,7 @@ article {
 		background-color: rgba(68,68,68,.4);
 		@include border-radius( $br2 );
 		padding: 10px;
+		margin-bottom: 120px;
 
 		h3 { margin: 10px 0; color: $red; letter-spacing: 1px; }
 
@@ -181,7 +183,7 @@ article {
 	}
 
 	.compatibility {
-		position: absolute;
+		position: fixed;
 		bottom: 55px;
 		left: 37px;
 		font-family: "museosansbold";
@@ -206,10 +208,10 @@ article {
 	}
 
 	.appendto-link {
-		position: absolute;
+		position: fixed;
 		bottom: 0;
 		left: 0;
-		width: 100%;
+		width: 352px;
 		background-color: #000;
 		font-family: "museosansbold";
 		text-transform: uppercase;
@@ -250,12 +252,12 @@ article {
 		text-align: center;
 		display: inline;
 		list-style-type: none;
-		
+
   		h3 {
   			display: inline;
   		}
 
-  		a { 
+  		a {
   			@include transition-property(color);
 			@include transition-property(background-color);
 			@include transition-property(border);
@@ -304,7 +306,7 @@ article {
 		font-weight: normal; /* for FF */
 
 	}
-	
+
 	h1 {
 		margin-bottom: 0;
 	}
